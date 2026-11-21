@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ئەلمانی بە یاسای ١٠ خولەک - کورس و دێشبۆردی سەرجەم ڕۆژەکان</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        accent: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'Tahoma', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            user-select: text;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(16, 185, 129, 0.4);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(16, 185, 129, 0.7);
+        }
+        .de-text {
+            direction: ltr;
+            display: inline-block;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .card-flip {
+            perspective: 1000px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-flip.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white font-black text-xl shadow-md">
+                        DE
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white leading-tight">ئەلمانی بە یاسای ١٠ خولەک</h1>
+                        <p class="text-xs text-brand-600 dark:text-brand-400 font-medium">پڕۆگرامی فێربوونی ٥٥ ڕۆژەی خێرا</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Actions -->
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button id="dictionaryModalBtn" class="flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 rounded-lg transition">
+                    <i data-lucide="book-open" class="w-4 h-4 text-brand-500"></i>
+                    <span class="hidden sm:inline">فەرهەنگی وشەکان (٤٣٢+)</span>
+                </button>
+
+                <button id="phoneticsModalBtn" class="flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 rounded-lg transition">
+                    <i data-lucide="volume-2" class="w-4 h-4 text-emerald-500"></i>
+                    <span class="hidden sm:inline">ڕێنمایی دەنگەکان</span>
+                </button>
+
+                <button id="themeToggleBtn" class="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg bg-slate-100 dark:bg-slate-800 transition">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex gap-6">
+
+        <!-- Sidebar Navigation (Desktop) / Mobile Drawer -->
+        <aside id="sidebar" class="fixed inset-y-0 right-0 z-50 lg:z-10 w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 flex flex-col transform translate-x-full lg:translate-x-0 lg:static lg:w-80 transition-transform duration-300 ease-in-out shadow-2xl lg:shadow-none rounded-2xl">
+            
+            <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <h2 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-5 h-5 text-brand-500"></i>
+                    لیستی ڕۆژەکان (٥٥ ڕۆژ)
+                </h2>
+                <button id="closeSidebarBtn" class="lg:hidden p-1 text-slate-500 hover:text-slate-800 dark:hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Progress Summary Card -->
+            <div class="p-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex justify-between items-center text-xs text-slate-600 dark:text-slate-300 mb-1 font-semibold">
+                    <span>پێشکەوتنی کورسەکە</span>
+                    <span id="progressText">0 / 55 (0%)</span>
+                </div>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                    <div id="progressBar" class="bg-gradient-to-r from-emerald-500 to-brand-500 h-full w-0 transition-all duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Filter Month Tabs -->
+            <div class="flex border-b border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800/80 p-1 m-3 rounded-xl">
+                <button id="tabMonth1" class="flex-1 py-1.5 text-xs font-bold rounded-lg transition text-white bg-brand-600 shadow-sm">
+                    مانگی 1 (1-30)
+                </button>
+                <button id="tabMonth2" class="flex-1 py-1.5 text-xs font-bold rounded-lg transition text-slate-600 dark:text-slate-300 hover:text-brand-600">
+                    مانگی 2 (31-55)
+                </button>
+            </div>
+
+            <!-- Search box in sidebar -->
+            <div class="px-3 mb-2">
+                <div class="relative">
+                    <input type="text" id="sidebarSearch" placeholder="گەڕان بۆ ڕۆژ یان بابەت..." class="w-full pl-3 pr-9 py-2 text-xs rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 border border-transparent dark:border-slate-700">
+                    <i data-lucide="search" class="w-4 h-4 absolute right-3 top-2.5 text-slate-400"></i>
+                </div>
+            </div>
+
+            <!-- Days Scrollable List -->
+            <div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-1.5" id="daysListContainer">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </aside>
+
+        <!-- Sidebar Overlay (Mobile) -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 min-w-0 flex flex-col gap-6">
+
+            <!-- Day Header Card -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-brand-500/10 dark:bg-brand-500/5 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span id="currentDayBadge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-brand-100 text-brand-800 dark:bg-brand-900/60 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                                ڕۆژی ١
+                            </span>
+                            <span id="currentMonthBadge" class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                مانگی یەکەم
+                            </span>
+                        </div>
+                        <h2 id="dayTitle" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                            گەڕان بەدوای ناوی ڕۆژدا...
+                        </h2>
+                    </div>
+
+                    <!-- Action Controls for Current Day -->
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button id="toggleCompleteBtn" class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition bg-emerald-500 text-white hover:bg-emerald-600 shadow-md">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                            <span id="completeBtnText">نیشانە بکە وەک تەواوکراو</span>
+                        </button>
+                        
+                        <button id="openQuizBtn" class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold bg-amber-500 text-white hover:bg-amber-600 transition shadow-md">
+                            <i data-lucide="help-circle" class="w-4 h-4"></i>
+                            <span>تاقیکردنەوەی فلاش کارد</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Tabs inside Day View -->
+            <div id="dayContentArea" class="space-y-6">
+
+                <!-- Section: Review / Initial Test (2 Mins) -->
+                <div id="sectionReview" class="bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 rounded-2xl p-5">
+                    <h3 class="text-base font-bold text-amber-900 dark:text-amber-300 flex items-center gap-2 mb-3">
+                        <i data-lucide="clock" class="w-5 h-5 text-amber-600"></i>
+                        ٢ خولەکی یەکەم: تاقیکردنەوە و دووبارەکردنەوەی ڕۆژانی پێشوو
+                    </h3>
+                    <p id="reviewText" class="text-sm text-amber-800 dark:text-amber-200/90 leading-relaxed font-medium">
+                        واتاکان بخوێنەوە و وشە ئەلمانییەکە بڵێ...
+                    </p>
+                </div>
+
+                <!-- Section: Grammar Explanation (If available) -->
+                <div id="sectionGrammar" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm hidden">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4 border-b border-slate-100 dark:border-slate-800 pb-3">
+                        <i data-lucide="book-marked" class="w-5 h-5 text-indigo-500"></i>
+                        ڕێزمانی ئەمڕۆ (Grammatik)
+                    </h3>
+                    <div id="grammarContent" class="prose dark:prose-invert max-w-none text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-4">
+                        <!-- Grammar loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Section: Vocabulary Table -->
+                <div id="sectionVocab" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100 dark:border-slate-800 flex-wrap gap-2">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i data-lucide="layers" class="w-5 h-5 text-brand-500"></i>
+                            وشە نوێیەکان و ڕستەکان (<span id="vocabCount">٩</span> وشە)
+                        </h3>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
+                            کلیک لەسەر دوگمەی <i data-lucide="volume-2" class="w-3 h-3 inline text-brand-500"></i> بکە بۆ گوێگرتن
+                        </span>
+                    </div>
+
+                    <!-- Vocab Responsive Grid/Table -->
+                    <div class="overflow-x-auto custom-scrollbar">
+                        <table class="w-full text-right text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-700">
+                                    <th class="p-3.5 rounded-r-xl">وشەی ئەلمانی</th>
+                                    <th class="p-3.5">خوێندنەوە</th>
+                                    <th class="p-3.5">واتا</th>
+                                    <th class="p-3.5">ڕستەی ١</th>
+                                    <th class="p-3.5 rounded-l-xl">ڕستەی ٢</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vocabTbody" class="divide-y divide-slate-100 dark:divide-slate-800/60 font-medium">
+                                <!-- Loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Section: Task / Assignment -->
+                <div id="sectionTask" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
+                        <i data-lucide="edit-3" class="w-5 h-5 text-brand-500"></i>
+                        ئەرکی دەستی و ڕاهێنانی ئەمڕۆ
+                    </h3>
+                    <p id="taskContent" class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                        هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە...
+                    </p>
+                </div>
+
+                <!-- Section: Special Milestone (e.g. Audio Recorder Day 30) -->
+                <div id="sectionAudioRecorder" class="bg-indigo-50/70 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-900/40 rounded-2xl p-5 hidden">
+                    <h3 class="text-base font-bold text-indigo-900 dark:text-indigo-300 flex items-center gap-2 mb-3">
+                        <i data-lucide="mic" class="w-5 h-5 text-indigo-500"></i>
+                        تۆمارکەری دەنگی خۆت (یەکەم دەنگ لە ڕۆژی ٣٠)
+                    </h3>
+                    <p class="text-xs text-indigo-800 dark:text-indigo-200/90 mb-4">
+                        دەتوانیت مۆبایل یان میکڕۆفۆنەکەت بەکاربهێنیت بۆ تۆمارکردنی دەنگت و سەردانکردنەوەی پاش ٢ مانگ بۆ بەراوردکردن.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <button id="recordAudioBtn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl flex items-center gap-2 transition">
+                            <i data-lucide="mic" class="w-4 h-4"></i>
+                            <span id="recordStatus">دەستپێکردنی تۆمارکردن</span>
+                        </button>
+                        <audio id="audioPlayback" controls class="h-9 hidden"></audio>
+                    </div>
+                </div>
+
+                <!-- Section: Advice & Motivational Tip -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-900 dark:to-slate-950 text-white rounded-2xl p-5 sm:p-6 shadow-lg relative overflow-hidden border border-slate-700/50">
+                    <div class="absolute left-0 top-0 w-32 h-32 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                ئامۆژگاری ئەمڕۆ
+                            </span>
+                            <blockquote id="quoteText" class="text-base sm:text-lg font-bold text-amber-100 italic">
+                                «دەستپێکردن قورسترین هەنگاوە...»
+                            </blockquote>
+                            <p id="quoteDesc" class="text-xs text-slate-300 leading-relaxed max-w-2xl">
+                                ڕوونکردنەوەی زیاتر...
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Screen Time Reminder Footer -->
+                    <div class="mt-4 pt-4 border-t border-slate-700/60 flex items-center gap-2 text-xs text-slate-400 font-medium">
+                        <i data-lucide="smartphone" class="w-4 h-4 text-emerald-400"></i>
+                        <span>بیرهێنەرەوە: ئەمڕۆش ١٠ خولەک لە کاتی مۆبایلەکەت کەم بکەرەوە و ئێوارە سەیری Screen Time بکە.</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Phonetics Modal -->
+    <div id="phoneticsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <h3 class="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                    <i data-lucide="volume-2" class="w-5 h-5 text-brand-500"></i>
+                    ڕێنمایی خوێندنەوەی دەنگە ئەلمانییەکان
+                </h3>
+                <button id="closePhoneticsBtn" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-5 overflow-y-auto custom-scrollbar flex-1 space-y-4">
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    لە خوارەوە دەنگە سەرەکییەکانی ئەلمانی هەن. ستوونی «خوێندنەوە» بە پیتی کوردی نووسراوە. بۆ گوێگرتن لە دەنگی دروست کلیک لەسەر هەر نموونەیەک بکە.
+                </p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-right">
+                        <thead>
+                            <tr class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                                <th class="p-2.5">پیت</th>
+                                <th class="p-2.5">دەنگ لە کوردیدا</th>
+                                <th class="p-2.5">نموونە</th>
+                                <th class="p-2.5">خوێندنەوە</th>
+                                <th class="p-2.5">گوێگرتن</th>
+                            </tr>
+                        </thead>
+                        <tbody id="phoneticsTbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Populated in JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Dictionary Modal -->
+    <div id="dictionaryModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <h3 class="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                    <i data-lucide="book-open" class="w-5 h-5 text-brand-500"></i>
+                    فەرهەنگی سەرجەم وشەکانی ٥٥ ڕۆژەکە (<span id="dictTotalCount">0</span> وشە)
+                </h3>
+                <button id="closeDictBtn" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Search & Filter bar -->
+            <div class="p-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-3">
+                <div class="relative flex-1">
+                    <input type="text" id="dictSearchInput" placeholder="گەڕان بەدوای وشەی ئەلمانی یان کوردی..." class="w-full pl-3 pr-9 py-2 text-sm rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    <i data-lucide="search" class="w-4 h-4 absolute right-3 top-3 text-slate-400"></i>
+                </div>
+                <select id="dictDayFilter" class="px-3 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 focus:outline-none">
+                    <option value="all">سەرجەم ڕۆژەکان</option>
+                    <!-- Filled dynamically -->
+                </select>
+            </div>
+
+            <div class="p-5 overflow-y-auto custom-scrollbar flex-1">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-right">
+                        <thead>
+                            <tr class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                                <th class="p-3">وشە</th>
+                                <th class="p-3">خوێندنەوە</th>
+                                <th class="p-3">واتای کوردی</th>
+                                <th class="p-3">ڕۆژ</th>
+                                <th class="p-3">دەنگ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dictTbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Filled dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz / Flashcard Modal -->
+    <div id="quizModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 relative flex flex-col items-center">
+            
+            <button id="closeQuizBtn" class="absolute left-4 top-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <h3 class="font-black text-lg text-slate-900 dark:text-white mb-1">
+                تاقیکردنەوەی خێرا (فلاش کارد)
+            </h3>
+            <p id="quizDayLabel" class="text-xs text-slate-500 dark:text-slate-400 mb-6 font-semibold">
+                ڕۆژی ١ - کارت 1 لە 9
+            </p>
+
+            <!-- Card UI -->
+            <div id="flashCard" class="card-flip w-full h-56 cursor-pointer mb-6">
+                <div class="card-inner shadow-lg rounded-2xl">
+                    <!-- Front -->
+                    <div class="card-front bg-gradient-to-tr from-brand-600 to-emerald-500 text-white p-6 border border-emerald-400 flex flex-col justify-center items-center gap-3">
+                        <span class="text-xs font-bold uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">وشەی ئەلمانی</span>
+                        <h4 id="cardGerman" class="text-2xl sm:text-3xl font-black de-text">...</h4>
+                        <span class="text-xs text-emerald-100">کلیک بکە بۆ بینینی واتا</span>
+                    </div>
+                    <!-- Back -->
+                    <div class="card-back bg-slate-800 text-white p-6 border border-slate-700 flex flex-col justify-center items-center gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">واتای کوردی و خوێندنەوە</span>
+                        <h4 id="cardKurdish" class="text-2xl font-bold text-amber-300">...</h4>
+                        <p id="cardPhonetic" class="text-sm text-slate-300">...</p>
+                        <p id="cardSentence" class="text-xs text-slate-400 mt-2 italic de-text">...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Navigation buttons -->
+            <div class="flex items-center justify-between w-full gap-4">
+                <button id="prevCardBtn" class="flex-1 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition flex items-center justify-center gap-1">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    پێشوو
+                </button>
+                <button id="playCardAudioBtn" class="p-2.5 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 hover:bg-brand-200 transition">
+                    <i data-lucide="volume-2" class="w-5 h-5"></i>
+                </button>
+                <button id="nextCardBtn" class="flex-1 py-2.5 rounded-xl text-xs font-bold bg-brand-600 text-white hover:bg-brand-700 transition flex items-center justify-center gap-1">
+                    داهاتوو
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Block containing App Data & Logic -->
+    <script>
+        // Phonetics Data
+        const phoneticsData = [
+            { char: "ch (دوای a, o, u, au)", sound: "خ", example: "Buch", phonetic: "بووخ" },
+            { char: "ch (دوای i, e, ä, ö, ü)", sound: "دەنگێکی نەرم، نێوان «ش» و «ح»", example: "ich", phonetic: "ئیش" },
+            { char: "sch", sound: "ش", example: "Schule", phonetic: "شوولە" },
+            { char: "sp / st (لە سەرەتادا)", sound: "شپ / شت", example: "Stunde", phonetic: "شتوندە" },
+            { char: "z", sound: "تس", example: "Zeit", phonetic: "تسایت" },
+            { char: "w", sound: "ڤ", example: "Wasser", phonetic: "ڤاسەر" },
+            { char: "v", sound: "ف", example: "Vater", phonetic: "فاتەر" },
+            { char: "s (پێش دەنگدار)", sound: "ز", example: "Sonne", phonetic: "زۆنە" },
+            { char: "ß / ss", sound: "س", example: "Straße", phonetic: "شترازە" },
+            { char: "j", sound: "ی", example: "Jahr", phonetic: "یار" },
+            { char: "ei", sound: "ئای", example: "nein", phonetic: "ناین" },
+            { char: "ie", sound: "ی (درێژ)", example: "wie", phonetic: "ڤی" },
+            { char: "eu / äu", sound: "ئۆی", example: "heute", phonetic: "هۆیتە" },
+            { char: "ä", sound: "ێ", example: "Männer", phonetic: "مێنەر" },
+            { char: "ö", sound: "ۆ (لێوەکان خڕ بکە)", example: "schön", phonetic: "شۆن" },
+            { char: "ü", sound: "ی (لێوەکان خڕ بکە)", example: "Tür", phonetic: "تیر" },
+            { char: "-er (لە کۆتایی)", sound: "ەر", example: "Vater", phonetic: "فاتەر" }
+        ];
+
+        // Core Course Data for Days 1 to 55
+        const courseDays = [
+            // DAY 1
+            {
+                day: 1,
+                month: 1,
+                title: "ڕۆژی ١: ٩ وشەی سەرەتایی",
+                review: "دەستپێکردنی یەکەم ڕۆژی کورسەکە!",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«دەستپێکردن قورسترین هەنگاوە، و تۆ ئەمڕۆ ئەوەت کرد.»",
+                quoteDesc: "هەر ڕێگایەکی دوور بە یەک هەنگاو دەست پێ دەکات. ٩ وشە لە ڕۆژێکدا بچووک دیارە، بەڵام ئەگەر هەموو ڕۆژێک بەردەوام بیت، لە سەد ڕۆژدا زیاتر لە ٨٠٠ وشە دەبێت.",
+                words: [
+                    { de: "arbeiten", ph: "ئاربایتەن", ku: "کارکردن", s1: "Ich arbeite heute.", s2: "Ich arbeite jeden Tag." },
+                    { de: "zu Hause", ph: "تسو هاوزە", ku: "لە ماڵەوە", s1: "Ich bin zu Hause.", s2: "Mein Auto ist zu Hause." },
+                    { de: "das Wasser", ph: "داس ڤاسەر", ku: "ئاو", s1: "Ich trinke Wasser.", s2: "Das Wasser ist kalt." },
+                    { de: "die Zeit", ph: "دی تسایت", ku: "کات", s1: "Ich habe Zeit.", s2: "Hast du Zeit?" },
+                    { de: "heute", ph: "هۆیتە", ku: "ئەمڕۆ", s1: "Heute ist gut.", s2: "Heute bin ich glücklich." },
+                    { de: "essen", ph: "ئێسەن", ku: "خواردن", s1: "Ich esse Brot.", s2: "Ich esse zu Hause." },
+                    { de: "gehen", ph: "گێیەن", ku: "چوون", s1: "Ich gehe zur Arbeit.", s2: "Ich gehe nach Hause." },
+                    { de: "der Freund", ph: "دێر فرۆیند", ku: "هاوڕێ", s1: "Das ist mein Freund.", s2: "Mein Freund ist hier." },
+                    { de: "gut", ph: "گووت", ku: "باش", s1: "Das ist gut.", s2: "Guten Morgen." }
+                ]
+            },
+            // DAY 2
+            {
+                day: 2,
+                month: 1,
+                title: "ڕۆژی ٢: ٩ وشەی نوێ",
+                review: "دووبارەکردنەوەی ڕۆژی ١: arbeiten, zu Hause, das Wasser, die Zeit, heute, essen, gehen, der Freund, gut",
+                task: "لە «Mein Name ist Ali» ناوی خۆت دابنێ، و هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ.",
+                quote: "«لەبیرچوونەوەی وشەیەک شکست نییە، بەشێکە لە فێربوون.»",
+                quoteDesc: "مێشک بە دووبارەکردنەوە فێر دەبێت، نەک بە یەک جار خوێندنەوە.",
+                words: [
+                    { de: "trinken", ph: "ترینکەن", ku: "خواردنەوە", s1: "Ich trinke Tee.", s2: "Trinkst du Wasser?" },
+                    { de: "das Essen", ph: "داس ئێسەن", ku: "خواردن (نان)", s1: "Das Essen ist heiß.", s2: "Ich will Essen." },
+                    { de: "das Auto", ph: "داس ئاوتۆ", ku: "ئۆتۆمبێل", s1: "Ich habe ein Auto.", s2: "Ich fahre mit dem Auto." },
+                    { de: "groß", ph: "گرۆس", ku: "گەورە", s1: "Der Hof ist groß.", s2: "Mein Haus ist groß." },
+                    { de: "klein", ph: "کلاین", ku: "بچووک", s1: "Das Zimmer ist klein.", s2: "Das Auto ist klein." },
+                    { de: "die Familie", ph: "دی فامیلیە", ku: "خێزان", s1: "Ich liebe meine Familie.", s2: "Meine Familie ist zu Hause." },
+                    { de: "der Name", ph: "دێر ناومە", ku: "ناو", s1: "Mein Name ist Ali.", s2: "Wie ist dein Name?" },
+                    { de: "sehen", ph: "زێیەن", ku: "بینین", s1: "Ich sehe meinen Freund.", s2: "Ich sehe dich heute." },
+                    { de: "mögen", ph: "مۆگەن", ku: "حەزکردن", s1: "Ich mag Tee.", s2: "Ich mag meine Arbeit." }
+                ]
+            },
+            // DAY 3
+            {
+                day: 3,
+                month: 1,
+                title: "ڕۆژی ٣: ٩ وشەی نوێ",
+                review: "تاقیکردنەوە: ١٨ وشەکەی ڕۆژی ١ و ٢ بە دەنگی بەرز بڵێ و ماناکانیان بیر بهێنەرەوە.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ڕۆژی سێیەم ئەو شوێنەیە کە زۆر کەس وازی لێ دەهێنن، و تۆ نەتهێناوە.»",
+                quoteDesc: "سەرەتای خۆشی دەڕوات و ئیرادە دەمێنێتەوە. تەنها ١٠ خولەک، بەڵام هەموو ڕۆژێک.",
+                words: [
+                    { de: "wollen", ph: "ڤۆلەن", ku: "ویستن", s1: "Ich will Wasser.", s2: "Ich will nach Hause gehen." },
+                    { de: "brauchen", ph: "براوخەن", ku: "پێویستبوون", s1: "Ich brauche Zeit.", s2: "Ich brauche Hilfe." },
+                    { de: "haben", ph: "هابەن", ku: "هەبوون", s1: "Ich habe ein Auto.", s2: "Ich habe eine große Familie." },
+                    { de: "helfen", ph: "هێڵفەن", ku: "یارمەتیدان", s1: "Kannst du mir helfen?", s2: "Ich helfe gern." },
+                    { de: "öffnen", ph: "ئۆفنەن", ku: "کردنەوە", s1: "Ich öffne die Tür.", s2: "Öffne es, bitte." },
+                    { de: "heiß", ph: "هایس", ku: "گەرم", s1: "Der Tee ist heiß.", s2: "Heute ist es heiß." },
+                    { de: "kalt", ph: "کاڵت", ku: "سارد", s1: "Das Wasser ist kalt.", s2: "Heute ist es kalt." },
+                    { de: "alt", ph: "ئاڵت", ku: "کۆن / پیر", s1: "Mein Auto ist alt.", s2: "Er ist alt." },
+                    { de: "neu", ph: "نۆی", ku: "نوێ", s1: "Ich habe ein neues Auto.", s2: "Das ist neu." }
+                ]
+            },
+            // DAY 4
+            {
+                day: 4,
+                month: 1,
+                title: "ڕۆژی ٤: وشە و دەربڕینی ڕۆژانە",
+                review: "تاقیکردنەوە: ویستن، پێویستبوون، هەبوون، یارمەتیدان، کردنەوە، گەرم، سارد، کۆن / پیر، نوێ.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«هەندێک وشە تەنها وشە نین، دەرگای ڕێزن.»",
+                quoteDesc: "«bitte» و «danke» و «Entschuldigung» لە هەموو زمانێکدا دڵەکان دەکەنەوە.",
+                words: [
+                    { de: "bitte", ph: "بیتە", ku: "تکایە", s1: "Wasser, bitte.", s2: "Öffne es, bitte." },
+                    { de: "danke", ph: "دانکە", ku: "سوپاس", s1: "Danke, mein Freund.", s2: "Danke für deine Hilfe." },
+                    { de: "Entschuldigung", ph: "ئێنتشوڵدیگونگ", ku: "ببورە", s1: "Entschuldigung, mein Freund.", s2: "Entschuldigung, ich komme zu spät." },
+                    { de: "ja", ph: "یا", ku: "بەڵێ", s1: "Ja, ich habe Zeit.", s2: "Ja, ich mag es." },
+                    { de: "nein", ph: "ناین", ku: "نەخێر", s1: "Nein, danke.", s2: "Nein, ich bin nicht zu Hause." },
+                    { de: "der Morgen", ph: "دێر مۆرگەن", ku: "بەیانی", s1: "Guten Morgen.", s2: "Ich arbeite am Morgen." },
+                    { de: "die Nacht", ph: "دی ناخت", ku: "شەو", s1: "Gute Nacht.", s2: "In der Nacht bin ich zu Hause." },
+                    { de: "hier", ph: "هیر", ku: "لێرە", s1: "Ich bin hier.", s2: "Komm bitte hierher." },
+                    { de: "dort", ph: "دۆرت", ku: "لەوێ", s1: "Mein Auto ist dort.", s2: "Der Schrottplatz ist dort." }
+                ]
+            },
+            // DAY 5
+            {
+                day: 5,
+                month: 1,
+                title: "ڕۆژی ٥: ژمارەکان (١ تا ٩)",
+                review: "تاقیکردنەوە: تکایە، سوپاس، ببورە، بەڵێ، نەخێر، بەیانی، شەو، لێرە، لەوێ.",
+                task: "ژمارەکان بە ڕێکخراوی بە دەنگی بەرز بڵێ و لەگەڵ ڕستەکان ڕاهێنان بکە.",
+                quote: "«هەموو شتێک بە ژمارەیەک دەست پێ دەکات، و تۆ ئێستا ٤٥ وشە فێر بوویت.»",
+                quoteDesc: "پێنج ڕۆژ لەمەوپێش ئەم وشانەت نەدەزانی. ئەمە بەڵگەیە کە مێشکت دەتوانێت.",
+                words: [
+                    { de: "eins", ph: "ئاینس", ku: "١", s1: "Ich habe ein Auto.", s2: "Eins, bitte." },
+                    { de: "zwei", ph: "تسڤای", ku: "٢", s1: "Ich brauche zwei Stunden.", s2: "Zwei Freunde sind hier." },
+                    { de: "drei", ph: "درای", ku: "٣", s1: "Ich sehe drei Autos.", s2: "Ich arbeite drei Tage." },
+                    { de: "vier", ph: "فیر", ku: "٤", s1: "Ich habe vier Stühle.", s2: "Vier Leute sind hier." },
+                    { de: "fünf", ph: "فینف", ku: "٥", s1: "Es ist fünf Uhr.", s2: "Ich brauche fünf Minuten." },
+                    { de: "sechs", ph: "زێکس", ku: "٦", s1: "Ich stehe um sechs auf.", s2: "Sechs Autos sind dort." },
+                    { de: "sieben", ph: "زیبەن", ku: "٧", s1: "Ich arbeite sieben Tage.", s2: "Es ist sieben Uhr." },
+                    { de: "acht", ph: "ئاخت", ku: "٨", s1: "Ich gehe um acht nach Hause.", s2: "Ich habe acht Tonnen." },
+                    { de: "neun", ph: "نۆین", ku: "٩", s1: "Neun Leute arbeiten hier.", s2: "Es ist neun Uhr." }
+                ]
+            },
+            // DAY 6
+            {
+                day: 6,
+                month: 1,
+                title: "ڕۆژی ٦: کار و ژیانی ڕۆژانە",
+                review: "ژمارەکانی ١ تا ٩ بە ئەلمانی بڵێ (eins تا neun)، ئینجا واتاکانی تکایە، سوپاس، ببورە، بەڵێ، نەخێر بڵێوه.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئەلمانی بۆ کتێب نییە، بۆ ژیانی خۆتە.»",
+                quoteDesc: "ئەو وشانەی ئەمڕۆ فێر بووی (Eisen، Metall، Lastwagen) سەر بە کارەکەتن. ٥٤ وشەت فێر بووە.",
+                words: [
+                    { de: "zehn", ph: "تسێین", ku: "١٠", s1: "Ich habe zehn Autos.", s2: "Zehn, bitte." },
+                    { de: "der Tag", ph: "دێر تاگ", ku: "ڕۆژ", s1: "Heute ist ein guter Tag.", s2: "Ich arbeite jeden Tag." },
+                    { de: "die Woche", ph: "دی ڤۆخە", ku: "هەفتە", s1: "Ich arbeite sechs Tage in der Woche.", s2: "Die Woche ist lang." },
+                    { de: "der Job", ph: "دێر جۆب", ku: "کار / پیشە", s1: "Mein Job ist gut.", s2: "Der Job ist neu." },
+                    { de: "das Geld", ph: "داس گێڵت", ku: "پارە", s1: "Ich brauche Geld.", s2: "Ich habe kein Geld." },
+                    { de: "der Preis", ph: "دێر پرایس", ku: "نرخ", s1: "Was ist der Preis?", s2: "Der Preis ist gut." },
+                    { de: "das Eisen", ph: "داس ئایزەن", ku: "ئاسن", s1: "Ich habe Eisen.", s2: "Das Eisen ist schwer." },
+                    { de: "das Metall", ph: "داس مێتاڵ", ku: "مەعدەن", s1: "Das ist Metall.", s2: "Ich kaufe Metall." },
+                    { de: "der Lastwagen", ph: "دێر لاستڤاگەن", ku: "لۆری", s1: "Der Lastwagen ist groß.", s2: "Der Lastwagen ist hier." }
+                ]
+            },
+            // DAY 7
+            {
+                day: 7,
+                month: 1,
+                title: "ڕۆژی ٧: پێداچوونەوەی هەفتانە (هەفتەی یەکەم)",
+                review: "ئەمڕۆ وشەی نوێ نییە. ٥٤ وشەی هەفتەی یەکەم بە تەواوی دووبارە دەکرێنەوە.",
+                task: "ڕستەکانی پێداچوونەوە بە دەنگی بەرز بڵێ و ٣ وشە بنووسە کە قورسترین بوون.",
+                quote: "«یەک هەفتەت تەواو کرد، واتە ئێستا ئەوە خوویەکی نوێیە، نەک تەنها هەوڵێک.»",
+                quoteDesc: "زۆرینەی ئەو کەسانەی دەڵێن «دەمەوێت فێر بم» هەرگیز ڕۆژی یەکەم دەست پێ ناکەن. تۆ ٧ ڕۆژت تەواو کرد.",
+                words: [
+                    { de: "Guten Morgen", ph: "گووتەن مۆرگەن", ku: "بەیانیت باش", s1: "Guten Morgen, mein Freund.", s2: "Guten Morgen zusammen." },
+                    { de: "bei der Arbeit", ph: "بای دێر ئاربایت", ku: "لە کاردا", s1: "Ich bin bei der Arbeit.", s2: "Er ist bei der Arbeit." },
+                    { de: "Wasser brauche", ph: "ڤاسەر براوخە", ku: "پێویستم بە ئاوە", s1: "Ich brauche Wasser.", s2: "Ich brauche kaltes Wasser." },
+                    { de: "Wasser kalt", ph: "ڤاسەر کاڵت", ku: "ئاوەکە ساردە", s1: "Das Wasser ist kalt.", s2: "Tee ist heiß, Wasser ist kalt." },
+                    { de: "Danke Freund", ph: "دانکە فرۆیند", ku: "سوپاس هاوڕێم", s1: "Danke, mein Freund.", s2: "Danke für alles." }
+                ]
+            },
+            // DAY 8
+            {
+                day: 8,
+                month: 1,
+                title: "ڕۆژی ٨: کرداری سەرەکی",
+                review: "دووبارەکردنەوەی ئەو ٣ وشەیەی هەفتەی پێشوو قورسترین بوون لەگەڵ وشەکانی ڕۆژی ٦.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی سێ ڕستەی خۆت بنووسە.",
+                quote: "«ئێستا دەتوانیت ڕستەی ڕاستەقینە بڵێیت، نەک تەنها وشە.»",
+                quoteDesc: "کردار دڵی هەموو ڕستەیەکە. «Ich kaufe Metall» و «Ich verkaufe Eisen» ڕستەی ڕاستەقینەی کارەکەتن.",
+                words: [
+                    { de: "kommen", ph: "کۆمەن", ku: "هاتن", s1: "Komm bitte her.", s2: "Ich komme um acht." },
+                    { de: "kaufen", ph: "کاوفەن", ku: "کڕین", s1: "Ich kaufe Metall.", s2: "Ich will ein Auto kaufen." },
+                    { de: "verkaufen", ph: "فێرکاوفەن", ku: "فرۆشتن", s1: "Ich verkaufe Eisen.", s2: "Er verkauft Autos." },
+                    { de: "nehmen", ph: "نێیمەن", ku: "وەرگرتن", s1: "Ich nehme das Wasser.", s2: "Ich nehme den Lastwagen." },
+                    { de: "geben", ph: "گێبەن", ku: "دان", s1: "Gib mir den Preis.", s2: "Ich gebe dir Geld." },
+                    { de: "machen", ph: "ماخەن", ku: "دروستکردن / کردن", s1: "Ich mache Tee.", s2: "Ich mache das Essen zu Hause." },
+                    { de: "wissen", ph: "ڤیسەن", ku: "زانین", s1: "Ich weiß den Preis.", s2: "Ich weiß es nicht." },
+                    { de: "sprechen", ph: "شپرێشەن", ku: "قسەکردن", s1: "Ich spreche ein bisschen Deutsch.", s2: "Sprichst du Deutsch?" },
+                    { de: "warten", ph: "ڤارتەن", ku: "چاوەڕێکردن", s1: "Warte hier, bitte.", s2: "Ich warte auf meinen Freund." }
+                ]
+            },
+            // DAY 9
+            {
+                day: 9,
+                month: 1,
+                title: "ڕۆژی ٩: پرسیارەکان",
+                review: "تاقیکردنەوە: هاتن، کڕین، فرۆشتن، وەرگرتن، دان، دروستکردن / کردن، زانین، قسەکردن، چاوەڕێکردن.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ پرسیاری خۆت بنووسە.",
+                quote: "«کەسێک کە دەتوانێت بپرسێت، هەرگیز ون نابێت.»",
+                quoteDesc: "پرسیارکردن بە زمانێکی نوێ یەکێکە لە ترسناکترین هەنگاوەکان، بەڵام کەسی بەرامبەرت یارمەتیت دەدات.",
+                grammar: "لە ئەلمانیدا لە پرسیاری W-دا کردارەکە هەمیشە دەبێتە وشەی دووەم: «Wo ist der Lastwagen?»",
+                words: [
+                    { de: "was", ph: "ڤاس", ku: "چی", s1: "Was ist das?", s2: "Was ist dein Name?" },
+                    { de: "wo", ph: "ڤۆ", ku: "لە کوێ", s1: "Wo ist der Lastwagen?", s2: "Wo bist du?" },
+                    { de: "wann", ph: "ڤان", ku: "کەی", s1: "Wann arbeitest du?", s2: "Wann ist er hier?" },
+                    { de: "wer", ph: "ڤێر", ku: "کێ", s1: "Wer ist er?", s2: "Wer ist dein Freund?" },
+                    { de: "wie", ph: "ڤی", ku: "چۆن", s1: "Wie geht es dir?", s2: "Wie ist deine Familie?" },
+                    { de: "warum", ph: "ڤاروم", ku: "بۆچی", s1: "Warum ist es heiß?", s2: "Warum brauchst du es?" },
+                    { de: "wie viel", ph: "ڤی فیل", ku: "چەند", s1: "Wie viel kostet das?", s2: "Wie viel kostet das Eisen?" },
+                    { de: "welches", ph: "ڤێڵشەس", ku: "کام", s1: "Welches Auto ist deins?", s2: "Welches willst du?" },
+                    { de: "können", ph: "کۆنەن", ku: "دەتوانم", s1: "Kannst du mir helfen?", s2: "Ich kann ein bisschen Deutsch sprechen." }
+                ]
+            },
+            // DAY 10
+            {
+                day: 10,
+                month: 1,
+                title: "ڕۆژی ١٠: کات",
+                review: "تاقیکردنەوە: چی، لە کوێ، کەی، کێ، چۆن، بۆچی، چەند، کام، دەتوانم.",
+                task: "هەر ڕستەیەک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ڕۆژی ١٠ نیشانەی ئەوەیە کە ئەمە ئیتر حەز نییە، خووە.»",
+                quoteDesc: "لە ماوەی ١٠ ڕۆژدا هەموو ڕۆژێک هاتیتەوە. ئەمە باشترین نیشانەی سەرکەوتنە.",
+                words: [
+                    { de: "morgen", ph: "مۆرگەن", ku: "سبەینێ", s1: "Ich arbeite morgen.", s2: "Bis morgen." },
+                    { de: "gestern", ph: "گێستەرن", ku: "دوێنێ", s1: "Gestern war es heiß.", s2: "Gestern war ein guter Tag." },
+                    { de: "jetzt", ph: "یێتست", ku: "ئێستا", s1: "Ich bin jetzt bei der Arbeit.", s2: "Ich brauche jetzt Wasser." },
+                    { de: "später", ph: "شپێتەر", ku: "دواتر", s1: "Bis später.", s2: "Ich gehe später nach Hause." },
+                    { de: "immer", ph: "ئیمەر", ku: "هەمیشە", s1: "Ich trinke immer Tee.", s2: "Er ist immer hier." },
+                    { de: "nie", ph: "نی", ku: "هەرگیز", s1: "Ich trinke nie kaltes Wasser.", s2: "Ich warte nie." },
+                    { de: "wieder", ph: "ڤیدەر", ku: "دووبارە", s1: "Komm bitte wieder.", s2: "Sag es noch einmal." },
+                    { de: "früh", ph: "فریو", ku: "زوو", s1: "Ich komme früh.", s2: "Ich arbeite früh." },
+                    { de: "spät", ph: "شپێت", ku: "درەنگ", s1: "Ich komme spät.", s2: "Entschuldigung, ich komme zu spät." }
+                ]
+            },
+            // DAY 11
+            {
+                day: 11,
+                month: 1,
+                title: "ڕۆژی ١١: هەست و دۆخ",
+                review: "تاقیکردنەوە: سبەینێ، دوێنێ، ئێستا، دواتر، هەمیشە، هەرگیز، دووبارە، زوو، درەنگ.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ماندوو بوون ڕێگر نییە، تەنها ئەو شوێنەیە کە دەبینێت ئایا دەگەڕێیتەوە.»",
+                quoteDesc: "ئەمڕۆ «müde» فێر بوویت. ئەو ڕۆژانەی ماندوویت ئەو ڕۆژانەن کە ١٠ خولەک گرنگترین کاریگەرییان هەیە. ئێستا ٩٠ وشەت فێر بووە.",
+                words: [
+                    { de: "müde", ph: "میدە", ku: "ماندوو", s1: "Ich bin müde.", s2: "Er ist heute müde." },
+                    { de: "glücklich", ph: "گلیکلیش", ku: "دڵخۆش", s1: "Ich bin glücklich.", s2: "Meine Familie ist glücklich." },
+                    { de: "beschäftigt", ph: "بەشێفتیگت", ku: "سەرقاڵ", s1: "Ich bin heute beschäftigt.", s2: "Er ist sehr beschäftigt." },
+                    { de: "der Hunger", ph: "دێر هونگەر", ku: "برسێتی", s1: "Ich habe Hunger.", s2: "Hast du Hunger?" },
+                    { de: "bereit", ph: "بەرایت", ku: "ئامادە", s1: "Ich bin bereit.", s2: "Der Lastwagen ist bereit." },
+                    { de: "einfach", ph: "ئاینفاخ", ku: "ئاسان", s1: "Das ist einfach.", s2: "Die Arbeit ist einfach." },
+                    { de: "schwierig", ph: "شڤیریش", ku: "قورس / سەخت", s1: "Diese Arbeit ist schwierig.", s2: "Deutsch ist schwierig, aber gut." },
+                    { de: "frei", ph: "فرای", ku: "بەتاڵ / ئازاد", s1: "Ich bin heute frei.", s2: "Ich bin um sechs frei." },
+                    { de: "sicher", ph: "زیشەر", ku: "دڵنیا", s1: "Ich bin sicher.", s2: "Bist du sicher?" }
+                ]
+            },
+            // DAY 12
+            {
+                day: 12,
+                month: 1,
+                title: "ڕۆژی ١٢: شوێنەکان",
+                review: "تاقیکردنەوە: ماندوو، دڵخۆش، سەرقاڵ، برسێتی، ئامادە، ئاسان، قورس / سەخت، بەتاڵ / ئازاد، دڵنیا.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئەگەر سەیری دواوە بکەیت، دەبینیت چەند هاتوویت.»",
+                quoteDesc: "دوازدە ڕۆژ لەمەوپێش ئەم ڕستانەت نەدەتوانی بڵێیت. ئێستا ٩٩ وشەت فێر بووە.",
+                words: [
+                    { de: "der Laden", ph: "دێر لادەن", ku: "دوکان", s1: "Ich gehe zum Laden.", s2: "Der Laden ist offen." },
+                    { de: "der Markt", ph: "دێر مارکت", ku: "بازاڕ", s1: "Der Markt ist groß.", s2: "Ich kaufe Essen auf dem Markt." },
+                    { de: "der Weg", ph: "دێر ڤێگ", ku: "ڕێگا", s1: "Der Weg ist lang.", s2: "Der Lastwagen ist auf dem Weg." },
+                    { de: "die Straße", ph: "دی شترازە", ku: "شەقام", s1: "Die Straße ist lang.", s2: "Der Laden ist an der Straße." },
+                    { de: "die Stadt", ph: "دی شتات", ku: "شار", s1: "Die Stadt ist groß.", s2: "Meine Familie ist in der Stadt." },
+                    { de: "das Büro", ph: "داس بیرۆ", ku: "نووسینگە", s1: "Ich bin im Büro.", s2: "Das Büro ist klein." },
+                    { de: "das Haus", ph: "داس هاوس", ku: "خانوو", s1: "Mein Haus ist groß.", s2: "Das Haus ist alt." },
+                    { de: "die Tür", ph: "دی تیر", ku: "دەرگا", s1: "Öffne die Tür, bitte.", s2: "Die Tür ist neu." },
+                    { de: "das Zimmer", ph: "داس تسیمەر", ku: "ژوور", s1: "Das Zimmer ist heiß.", s2: "Ich bin im Zimmer." }
+                ]
+            },
+            // DAY 13
+            {
+                day: 13,
+                month: 1,
+                title: "ڕۆژی ١٣: خەڵک و خێزان",
+                review: "تاقیکردنەوە: دوکان، بازاڕ، ڕێگا، شەقام، شار، نووسینگە، خانوو، دەرگا، ژوور.",
+                task: "هەوڵ بدە ئەمڕۆ ٣ ڕستە دەربارەی کەسانی ژیانی خۆت بنووسیت.",
+                quote: "«کاتێک بە ئەلمانی باسی خێزانەکەت دەکەیت، زمانەکە دەبێتە هی خۆت.»",
+                quoteDesc: "وشەکانی ئەمڕۆ لە ژیانی خۆتەوە نزیکن، و ئەوانەی نزیکن لە دڵەوە، بە ئاسانی لەبیر دەمێنن. ئێستا ١٠٨ وشەت فێر بووە.",
+                words: [
+                    { de: "die Mutter", ph: "دی موتەر", ku: "دایک", s1: "Meine Mutter ist zu Hause.", s2: "Ich liebe meine Mutter." },
+                    { de: "der Vater", ph: "دێر فاتەر", ku: "باوک", s1: "Mein Vater ist alt.", s2: "Mein Vater arbeitet hier." },
+                    { de: "der Bruder", ph: "دێر برودەر", ku: "برا", s1: "Mein Bruder hat ein Auto.", s2: "Ich sehe heute meinen Bruder." },
+                    { de: "die Schwester", ph: "دی شڤێستەر", ku: "خوشک", s1: "Meine Schwester ist glücklich.", s2: "Meine Schwester ist in der Stadt." },
+                    { de: "der Sohn", ph: "دێر زۆن", ku: "کوڕ", s1: "Mein Sohn ist klein.", s2: "Ich habe einen Sohn." },
+                    { de: "die Tochter", ph: "دی تۆختەر", ku: "کچ", s1: "Meine Tochter ist in der Schule.", s2: "Ich habe zwei Töchter." },
+                    { de: "der Mann", ph: "دێر مان", ku: "پیاو", s1: "Der Mann ist hier.", s2: "Der Mann arbeitet gut." },
+                    { de: "die Frau", ph: "دی فراو", ku: "ژن", s1: "Die Frau ist dort.", s2: "Die Frau kauft Brot." },
+                    { de: "das Kind", ph: "داس کینت", ku: "منداڵ", s1: "Das Kind ist glücklich.", s2: "Ich habe ein kleines Kind." }
+                ]
+            },
+            // DAY 14
+            {
+                day: 14,
+                month: 1,
+                title: "ڕۆژی ١٤: پێداچوونەوەی هەفتەی دووەم",
+                review: "ئەمڕۆش وشەی نوێ نییە. دوو هەفتەت تەواو کرد، کە ٥٤ وشەی نوێی تێدایە (سەرجەم ١٠٨ وشە).",
+                task: "ڕستەکانی پێداچوونەوە بە دەنگی بەرز بڵێ و ٣ وشە بنووسە کە قورسترین بوون.",
+                quote: "«دوو هەفتە ئینجا دەبینیت جیاوازی ڕاستەقینە لە کوێدایە: لە بەردەوامبوون، نەک لە ئاسانی.»",
+                quoteDesc: "ئێستا ١٠٨ وشەت فێر بووە و ڕێگاکەت نزیکەی ١٥٪ی ٣ مانگەکەیە.",
+                words: [
+                    { de: "Ich kaufe Metall", ph: "ئیش کاوفە مێتاڵ", ku: "من ئاسن/مەعدەن دەکڕم", s1: "Ich kaufe Metall auf dem Markt.", s2: "Er kauft viel Metall." },
+                    { de: "Wo ist mein Bruder?", ph: "ڤۆ ئیست ماین برودەر", ku: "برام لە کوێیە؟", s1: "Wo ist mein Bruder jetzt?", s2: "Wo ist dein Bruder?" },
+                    { de: "Ich bin müde", ph: "ئیش بین میدە", ku: "من ماندووم بەڵام دڵخۆشم", s1: "Ich bin müde, aber ich bin glücklich.", s2: "Er ist müde." },
+                    { de: "Wie viel kostet das?", ph: "ڤی فیل کۆستەت داس", ku: "نرخی ئەمە چەندە؟", s1: "Wie viel kostet das Brot?", s2: "Wie viel kostet das Auto?" },
+                    { de: "Bis morgen", ph: "بیس مۆرگەن", ku: "تا سبەینێ هاوڕێم", s1: "Bis morgen, mein Freund.", s2: "Bis später." }
+                ]
+            },
+            // DAY 15
+            {
+                day: 15,
+                month: 1,
+                title: "ڕۆژی ١٥: ڕەنگەکان",
+                review: "تاقیکردنەوە: دایک، باوک، برا، خوشک، کوڕ، کچ، پیاو، ژن، منداڵ.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«هەفتەی سێیەم ئەو شوێنەیە کە ئەوانەی بەردەوام دەبن لەوانەی نابن جیا دەبنەوە.»",
+                quoteDesc: "ئەمڕۆ هەفتەی سێیەم دەست پێ دەکات. ئەگەر ڕۆژێک نەتوانیت ١٠ خولەک، تەنها ٣ خولەک بکە، بەڵام بەتاڵی مەهێڵەوە.",
+                words: [
+                    { de: "die Farbe", ph: "دی فاربە", ku: "ڕەنگ", s1: "Welche Farbe ist das?", s2: "Ich mag diese Farbe." },
+                    { de: "rot", ph: "ڕۆت", ku: "سووڕ", s1: "Das Auto ist rot.", s2: "Mein Lastwagen ist rot." },
+                    { de: "blau", ph: "بلاو", ku: "شین", s1: "Die Tür ist blau.", s2: "Das Wasser ist blau." },
+                    { de: "grün", ph: "گرین", ku: "سەوز", s1: "Der Laden ist grün.", s2: "Der Tee ist grün." },
+                    { de: "schwarz", ph: "شڤارتس", ku: "ڕەش", s1: "Das Eisen ist schwarz.", s2: "Mein Auto ist schwarz." },
+                    { de: "weiß", ph: "ڤایس", ku: "سپی", s1: "Das Haus ist weiß.", s2: "Der Lastwagen ist weiß." },
+                    { de: "gelb", ph: "گێڵب", ku: "زەرد", s1: "Das Zimmer ist gelb.", s2: "Das Auto ist gelb." },
+                    { de: "braun", ph: "براون", ku: "قاوەیی", s1: "Die Tür ist braun.", s2: "Das Metall ist braun." },
+                    { de: "grau", ph: "گراو", ku: "خۆڵەمێشی", s1: "Die Straße ist grau.", s2: "Das Eisen ist grau." }
+                ]
+            },
+            // DAY 16
+            {
+                day: 16,
+                month: 1,
+                title: "ڕۆژی ١٦: خواردن",
+                review: "تاقیکردنەوە: ڕەنگ، سووڕ، شین، سەوز، ڕەش، سپی، زەرد، قاوەیی، خۆڵەمێشی.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئەوەی بتوانێت بە زمانێکی نوێ نان داوا بکات، هەرگیز برسی نامێنێتەوە.»",
+                quoteDesc: "خواردن یەکێکە لە باشترین بابەتەکان بۆ فێربوونی زمان، چونکە هەموو ڕۆژێک بەکاری دێنیت. ئێستا ١٢٦ وشەت فێر بووە.",
+                words: [
+                    { de: "das Brot", ph: "داس برۆت", ku: "نان", s1: "Ich esse Brot.", s2: "Das Brot ist heiß." },
+                    { de: "der Reis", ph: "دێر رایس", ku: "برنج", s1: "Ich will Reis.", s2: "Der Reis ist gut." },
+                    { de: "das Fleisch", ph: "داس فلایش", ku: "گۆشت", s1: "Ich esse Fleisch.", s2: "Das Fleisch ist heiß." },
+                    { de: "das Obst", ph: "داس ئۆبست", ku: "میوە", s1: "Ich mag Obst.", s2: "Ich kaufe Obst auf dem Markt." },
+                    { de: "der Apfel", ph: "دێر ئاپفەل", ku: "سێو", s1: "Der Apfel ist rot.", s2: "Ich esse einen Apfel." },
+                    { de: "das Ei", ph: "داس ئای", ku: "هێلکە", s1: "Ich esse ein Ei.", s2: "Ich brauche zwei Eier." },
+                    { de: "die Milch", ph: "دی میڵش", ku: "شیر", s1: "Ich trinke Milch.", s2: "Die Milch ist kalt." },
+                    { de: "der Zucker", ph: "دێر تسوکەر", ku: "شەکر", s1: "Zucker, bitte.", s2: "Ich brauche Zucker." },
+                    { de: "das Salz", ph: "داس زاڵتس", ku: "خوێ", s1: "Salz, bitte.", s2: "Das Essen braucht Salz." }
+                ]
+            },
+            // DAY 17
+            {
+                day: 17,
+                month: 1,
+                title: "ڕۆژی ١٧: ئامێر و کار",
+                review: "تاقیکردنەوە: نان، برنج، گۆشت، میوە، سێو، هێلکە، شیر، شەکر، خوێ.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئەو کەسەی ئامرازەکەی دەناسێت، کارەکەی ئاسانتر دەبێت.»",
+                quoteDesc: "ئەمڕۆ وشەکانی کارەکەتن. وشەی «die Gefahr» و «die Sicherheit» زۆر گرنگن. ئاگاداری: «schwer» دوو واتای هەیە: قورس (کێش) و سەخت.",
+                words: [
+                    { de: "das Werkzeug", ph: "داس ڤێرکتسۆیگ", ku: "ئامراز", s1: "Ich brauche ein Werkzeug.", s2: "Dieses Werkzeug ist neu." },
+                    { de: "die Maschine", ph: "دی ماشینە", ku: "ئامێر", s1: "Die Maschine ist groß.", s2: "Die Maschine ist alt." },
+                    { de: "der Hammer", ph: "دێر هامەر", ku: "چەکوش", s1: "Ich brauche einen Hammer.", s2: "Der Hammer ist schwer." },
+                    { de: "das Feuer", ph: "داس فۆیەر", ku: "ئاگر", s1: "Das Feuer ist groß.", s2: "Kein Feuer hier, bitte." },
+                    { de: "schwer", ph: "شڤێر", ku: "قورس (کێش)", s1: "Das Eisen ist schwer.", s2: "Der Lastwagen ist schwer." },
+                    { de: "leicht", ph: "لایشت", ku: "سووک", s1: "Diese Tasche ist leicht.", s2: "Das Auto ist leicht." },
+                    { de: "stark", ph: "شتارک", ku: "بەهێز", s1: "Er ist stark.", s2: "Die Maschine ist stark." },
+                    { de: "die Sicherheit", ph: "دی زیشەرهایت", ku: "سەلامەتی", s1: "Sicherheit zuerst!", s2: "Ich brauche Sicherheit." },
+                    { de: "die Gefahr", ph: "دی گەفار", ku: "مەترسی", s1: "Gefahr! Warte hier.", s2: "Hier ist Gefahr." }
+                ]
+            },
+            // DAY 18
+            {
+                day: 18,
+                month: 1,
+                title: "ڕۆژی ١٨: مۆبایل و پەیوەندی",
+                review: "تاقیکردنەوە: ئامراز، ئامێر، چەکوش، ئاگر، قورس (کێش)، سووک، بەهێز، سەلامەتی، مەترسی.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئەو مۆبایلەی بە ڕێگای باش بەکاری بهێنیت، دەبێتە مامۆستا.»",
+                quoteDesc: "ئاگاداری: «anrufen» کردارێکی جیابووەیە. کاتێک دەڵێیت «Ich rufe dich an»، وشەی «an» دەچێتە کۆتایی ڕستەکە.",
+                grammar: "کرداری جیابوو: anrufen → Ich rufe dich an.",
+                words: [
+                    { de: "das Handy", ph: "داس هێندی", ku: "مۆبایل", s1: "Mein Handy ist neu.", s2: "Wo ist mein Handy?" },
+                    { de: "anrufen", ph: "ئانڕووفەن", ku: "تەلەفۆنکردن", s1: "Ruf mich bitte an.", s2: "Ich rufe meine Familie an." },
+                    { de: "die Nachricht", ph: "دی ناخڕیشت", ku: "پەیام", s1: "Ich schicke eine Nachricht.", s2: "Ich brauche deine Nachricht." },
+                    { de: "die Nummer", ph: "دی نومەر", ku: "ژمارە", s1: "Wie ist deine Nummer?", s2: "Ich habe deine Nummer." },
+                    { de: "die Adresse", ph: "دی ئادرێسە", ku: "ناونیشان", s1: "Wie ist deine Adresse?", s2: "Die Adresse ist hier." },
+                    { de: "das Bild", ph: "داس بیڵد", ku: "وێنە", s1: "Ich sehe das Bild.", s2: "Schick mir ein Bild." },
+                    { de: "das Video", ph: "داس ڤیدێئۆ", ku: "ڤیدیۆ", s1: "Ich sehe ein Video.", s2: "Das Video ist gut." },
+                    { de: "das Internet", ph: "داس ئینتەرنێت", ku: "ئینتەرنێت", s1: "Ich brauche das Internet.", s2: "Das Internet ist langsam." },
+                    { de: "der Akku", ph: "دێر ئاکوو", ku: "باتری", s1: "Der Akku ist leer.", s2: "Ich brauche einen neuen Akku." }
+                ]
+            },
+            // DAY 19
+            {
+                day: 19,
+                month: 1,
+                title: "ڕۆژی ١٩: جەستە و تەندروستی",
+                review: "تاقیکردنەوە: مۆبایل، تەلەفۆنکردن، پەیام، ژمارە، ناونیشان، وێنە، ڤیدیۆ، ئینتەرنێت، باتری.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«کاتێک بتوانیت بڵێیت چیت دێشێت، یارمەتی بەدەست دێنیت.»",
+                quoteDesc: "«Ich brauche einen Arzt» ڕستەیەکە کە لە هەلی ناکاودا زۆر گرنگە. ئێستا ١٥٣ وشەت فێر بووە.",
+                words: [
+                    { de: "der Kopf", ph: "دێر کۆپف", ku: "سەر", s1: "Ich habe Schmerzen im Kopf.", s2: "Mein Kopf ist heiß." },
+                    { de: "die Hand", ph: "دی هانت", ku: "دەست", s1: "Meine Hand ist kalt.", s2: "Gib mir deine Hand." },
+                    { de: "das Auge", ph: "داس ئاوگە", ku: "چاو", s1: "Ich habe zwei Augen.", s2: "Mein Auge ist rot." },
+                    { de: "das Ohr", ph: "داس ئۆر", ku: "گوێ", s1: "Ich habe zwei Ohren.", s2: "Mein Ohr ist kalt." },
+                    { de: "der Rücken", ph: "دێر ڕیکەن", ku: "پشت", s1: "Mein Rücken tut weh.", s2: "Ich habe Schmerzen im Rücken." },
+                    { de: "das Bein", ph: "داس باین", ku: "قاچ", s1: "Mein Bein ist stark.", s2: "Ich habe Schmerzen im Bein." },
+                    { de: "der Arzt", ph: "دێر ئارتست", ku: "دکتۆر", s1: "Ich brauche einen Arzt.", s2: "Der Arzt ist hier." },
+                    { de: "krank", ph: "کرانک", ku: "نەخۆش", s1: "Ich bin heute krank.", s2: "Mein Sohn ist krank." },
+                    { de: "der Schmerz", ph: "دێر شمێرتس", ku: "ئازار", s1: "Ich habe Schmerzen.", s2: "Wo ist der Schmerz?" }
+                ]
+            },
+            // DAY 20
+            {
+                day: 20,
+                month: 1,
+                title: "ڕۆژی ٢٠: کەشوهەوا",
+                review: "تاقیکردنەوە: سەر، دەست، چاو، گوێ، پشت، قاچ، دکتۆر، نەخۆش، ئازار.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«کەشوهەوا باشترین بابەتە بۆ دەستپێکردنی هەر گفتوگۆیەک.»",
+                quoteDesc: "ئێستا دەتوانیت بڵێیت «Das Wetter ist heute gut» یان «Es ist kalt». سبەینێ ڕۆژی پێداچوونەوەیە. ئێستا ١٦٢ وشەت فێر بووە.",
+                words: [
+                    { de: "das Wetter", ph: "داس ڤێتەر", ku: "کەشوهەوا", s1: "Das Wetter ist gut.", s2: "Wie ist das Wetter heute?" },
+                    { de: "der Regen", ph: "دێر ڕێگەن", ku: "باران", s1: "Ich sehe Regen.", s2: "Der Regen ist kalt." },
+                    { de: "die Sonne", ph: "دی زۆنە", ku: "خۆر", s1: "Die Sonne ist heiß.", s2: "Ich mag die Sonne." },
+                    { de: "der Wind", ph: "دێر ڤینت", ku: "با", s1: "Der Wind ist stark.", s2: "Der Wind ist heute kalt." },
+                    { de: "der Schnee", ph: "دێر شنێ", ku: "بەفر", s1: "Ich sehe Schnee.", s2: "Der Schnee ist weiß." },
+                    { de: "die Wolke", ph: "دی ڤۆڵکە", ku: "هەور", s1: "Ich sehe eine Wolke.", s2: "Die Wolken sind grau." },
+                    { de: "der Sommer", ph: "دێر زۆمەر", ku: "هاوین", s1: "Der Sommer ist heiß.", s2: "Im Sommer arbeite ich früh." },
+                    { de: "der Winter", ph: "دێر ڤینتەر", ku: "زستان", s1: "Der Winter ist kalt.", s2: "Ich mag den Winter." },
+                    { de: "die Jahreszeit", ph: "دی یارەستسایت", ku: "وەرز", s1: "Der Sommer ist eine Jahreszeit.", s2: "Ich mag diese Jahreszeit." }
+                ]
+            },
+            // DAY 21
+            {
+                day: 21,
+                month: 1,
+                title: "ڕۆژی ٢١: پێداچوونەوەی هەفتەی سێیەم",
+                review: "ئەمڕۆش وشەی نوێ نییە. سێ هەفتەت تەواو کرد، لەگەڵ ٥٤ وشەی نوێ (سەرجەم ١٦٢ وشە).",
+                task: "ڕستەکان بە دەنگی بەرز بڵێ و ٣ وشە بنووسە کە قورسترین بوون.",
+                quote: "«٢١ ڕۆژ بەردەوامبوون، واتە ئێستا تۆ کەسێکی تری وەک دەستپێکەر.»",
+                quoteDesc: "سێ هەفتە لەمەوپێش ئەلمانیت وەک خەونێک دەبینی، ئێستا ١٦٢ وشەت فێر بووە و دەتوانیت ڕستەی ڕاستەقینە بڵێیت.",
+                words: [
+                    { de: "Mein Lastwagen ist weiß", ph: "ماین لاستڤاگەن ئیست ڤایس", ku: "لۆرییەکەم سپییە", s1: "Mein Lastwagen ist weiß.", s2: "Das Auto ist rot." },
+                    { de: "Ich brauche einen Arzt", ph: "ئیش براوخە ئاینەن ئارتست", ku: "پێویستم بە دکتۆرە", s1: "Ich brauche einen Arzt.", s2: "Er ist krank." },
+                    { de: "Das Wetter ist heiß", ph: "داس ڤێتەر ئیست هایس", ku: "کەشوهەوا گەرمە", s1: "Das Wetter ist heute heiß.", s2: "Im Sommer ist es heiß." },
+                    { de: "Ruf mich an", ph: "رووف میش ئان", ku: "تەلەفۆنم بۆ بکە", s1: "Ruf mich morgen an, bitte.", s2: "Ich rufe dich an." },
+                    { de: "Brot und Milch", ph: "برۆت ئونت میڵش", ku: "نان و شیر", s1: "Ich esse Brot und trinke Milch.", s2: "Ich kaufe Brot und Milch." }
+                ]
+            },
+            // DAY 22
+            {
+                day: 22,
+                month: 1,
+                title: "ڕۆژی ٢٢: وشە بەستەرەکان (کۆنژەنکشن)",
+                review: "تاقیکردنەوە: کەشوهەوا، باران، خۆر، با، بەفر، هەور، هاوین، زستان، وەرز.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«وشەی بچووک ڕستەی گەورە دروست دەکەن.»",
+                quoteDesc: "«und» و «aber» و «weil» وشەکان بە یەک دەبەستنەوە و ڕستەکانت سروشتیتر دەکەن.",
+                grammar: "دوای «weil» کردارەکە دەچێتە کۆتایی ڕستەکە: «Ich bleibe zu Hause, weil es kalt ist.»",
+                words: [
+                    { de: "und", ph: "ئونت", ku: "و", s1: "Ich esse Brot und Eier.", s2: "Tee und Wasser, bitte." },
+                    { de: "aber", ph: "ئابەر", ku: "بەڵام", s1: "Ich bin müde, aber glücklich.", s2: "Das Auto ist alt, aber stark." },
+                    { de: "oder", ph: "ئۆدەر", ku: "یان", s1: "Tee oder Wasser?", s2: "Willst du Reis oder Brot?" },
+                    { de: "weil", ph: "ڤایل", ku: "چونکە", s1: "Ich bin müde, weil ich arbeite.", s2: "Ich bleibe zu Hause, weil es kalt ist." },
+                    { de: "mit", ph: "میت", ku: "لەگەڵ", s1: "Ich gehe mit meinem Freund.", s2: "Tee mit Zucker, bitte." },
+                    { de: "für", ph: "فیر", ku: "بۆ", s1: "Das ist für dich.", s2: "Ich kaufe das für meinen Bruder." },
+                    { de: "zu", ph: "تسو", ku: "بۆ / بەرەو", s1: "Ich gehe zur Arbeit.", s2: "Komm zu meinem Haus." },
+                    { de: "von", ph: "فۆن", ku: "لە (سەرچاوە)", s1: "Ich bekomme einen Anruf von meinem Bruder.", s2: "Das Wasser ist vom Laden." },
+                    { de: "über", ph: "ئیبەر", ku: "دەربارەی", s1: "Erzähl mir über deine Familie.", s2: "Ich weiß viel über Autos." }
+                ]
+            },
+            // DAY 23
+            {
+                day: 23,
+                month: 1,
+                title: "ڕۆژی ٢٣: جێناوکان (Pronouns)",
+                review: "تاقیکردنەوە: و، بەڵام، یان، چونکە، لەگەڵ، بۆ، بۆ / بەرەو، لە (سەرچاوە)، دەربارەی.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«کاتێک دەتوانیت بڵێیت «من» و «تۆ» و «ئەو»، دەتوانیت باسی هەموو جیهان بکەیت.»",
+                quoteDesc: "جێناوەکان لە هەموو ڕستەیەکدا بەکار دێن. ئێستا ١٨٠ وشەت فێر بووە.",
+                grammar: "«sie» سێ واتای هەیە: ئەو (مێ)، ئەوان (they)، و «Sie» بە پیتی گەورە بۆ ڕێزگرتن.",
+                words: [
+                    { de: "ich", ph: "ئیش", ku: "من", s1: "Ich arbeite heute.", s2: "Ich bin zu Hause." },
+                    { de: "du", ph: "دو", ku: "تۆ", s1: "Du bist mein Freund.", s2: "Bist du bereit?" },
+                    { de: "er", ph: "ئێر", ku: "ئەو (نێر)", s1: "Er ist mein Bruder.", s2: "Er arbeitet hier." },
+                    { de: "sie (she)", ph: "زی", ku: "ئەو (مێ)", s1: "Sie ist meine Schwester.", s2: "Sie ist zu Hause." },
+                    { de: "wir", ph: "ڤیر", ku: "ئێمە", s1: "Wir arbeiten hier.", s2: "Wir sind Freunde." },
+                    { de: "sie (they)", ph: "زی", ku: "ئەوان", s1: "Sie sind hier.", s2: "Sie sind meine Familie." },
+                    { de: "es", ph: "ئێس", ku: "ئەو (شت)", s1: "Es ist groß.", s2: "Es ist neu." },
+                    { de: "mein", ph: "ماین", ku: "ی من", s1: "Das ist mein Auto.", s2: "Mein Name ist Ali." },
+                    { de: "dein", ph: "داین", ku: "ی تۆ", s1: "Wie ist dein Name?", s2: "Dein Lastwagen ist hier." }
+                ]
+            },
+            // DAY 24
+            {
+                day: 24,
+                month: 1,
+                title: "ڕۆژی ٢٤: کرداری «بوون» و «هەبوون» (sein و haben)",
+                review: "تاقیکردنەوە: من، تۆ، ئەو (نێر)، ئەو (مێ)، ئێمە، ئەوان، ئەو (شت)، ی من، ی تۆ.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئێستا دەتوانیت باسی دوێنێش بکەیت، نەک تەنها ئەمڕۆ.»",
+                quoteDesc: "ئەمڕۆ «war» و «waren» و «hatte» فێر بووی، کە یەکەم هەنگاوی ڕێزمانی ڕاستەقینەیە. ئێستا ١٨٩ وشەت فێر بووە.",
+                grammar: "کردارە یاریدەدەرەکان: bin, ist, sind (لە sein) و habe, hat (لە haben). کاتی ڕابردوو: war, waren, hatte.",
+                words: [
+                    { de: "bin", ph: "بین", ku: "م (بوون، بۆ ich)", s1: "Ich bin bei der Arbeit.", s2: "Ich bin mit meinem Freund." },
+                    { de: "ist", ph: "ئیست", ku: "ە (بوون، بۆ er/sie/es)", s1: "Er ist mein Freund.", s2: "Es ist heute heiß." },
+                    { de: "sind", ph: "زینت", ku: "ین (بوون، بۆ wir/sie)", s1: "Wir sind zu Hause.", s2: "Sie sind hier." },
+                    { de: "war", ph: "ڤار", ku: "بوو (ڕابردوو)", s1: "Ich war zu Hause.", s2: "Das Wetter war gestern kalt." },
+                    { de: "waren", ph: "ڤارەن", ku: "بوون (ڕابردوو)", s1: "Wir waren bei der Arbeit.", s2: "Sie waren hier." },
+                    { de: "habe", ph: "هابە", ku: "هەمە (بۆ ich)", s1: "Ich habe Zeit.", s2: "Ich habe ein Auto." },
+                    { de: "hat", ph: "هات", ku: "هەیەتی (بۆ er/sie/es)", s1: "Er hat Zeit.", s2: "Sie hat ein neues Auto." },
+                    { de: "hatte", ph: "هاتە", ku: "هەبوو (ڕابردوو)", s1: "Ich hatte viel Arbeit.", s2: "Er hatte ein altes Auto." },
+                    { de: "nicht", ph: "نیشت", ku: "نا / نەـ", s1: "Ich bin nicht müde.", s2: "Er arbeitet heute nicht." }
+                ]
+            },
+            // DAY 25
+            {
+                day: 25,
+                month: 1,
+                title: "ڕۆژی ٢٥: شوێن دیاریکردن (Prepositions)",
+                review: "تاقیکردنەوە: م (بوون)، ە (بوون)، ین (بوون)، بوو (ڕابردوو)، بوون (ڕابردوو)، هەمە، هەیەتی، هەبوو، نا/نە-.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئەو کەسەی دەزانێت شتەکان لە کوێن، هەرگیز ون نابێت.»",
+                quoteDesc: "ئێستا دەتوانیت بپرسیت «Wo ist der Hammer?» و وەڵامەکەش بزانیت: «Er ist auf dem Tisch». ئێستا ١٩٨ وشەت فێر بووە.",
+                grammar: "دوای زۆربەی ئەم وشانە ناوی نێر و بێلایەن دەگۆڕێت: der Tisch دەبێتە «auf dem Tisch», das Haus دەبێتە «vor dem Haus».",
+                words: [
+                    { de: "in", ph: "ئین", ku: "لە ناو", s1: "Der Tee ist in der Tasse.", s2: "Ich bin im Hof." },
+                    { de: "auf", ph: "ئاوف", ku: "لەسەر", s1: "Das Handy ist auf dem Tisch.", s2: "Der Tee ist auf dem Tisch." },
+                    { de: "bei", ph: "بای", ku: "لە لای / لە", s1: "Ich bin bei der Arbeit.", s2: "Ich bin bei meinem Bruder." },
+                    { de: "unter", ph: "ئونتەر", ku: "لە ژێر", s1: "Die Schuhe sind unter dem Tisch.", s2: "Die Katze ist unter dem Lastwagen." },
+                    { de: "in der Nähe", ph: "ئین دێر نێیە", ku: "نزیک", s1: "Der Laden ist in der Nähe.", s2: "Ich bin in der Nähe der Tür." },
+                    { de: "hinter", ph: "هینتەر", ku: "لە پشت", s1: "Der Lastwagen ist hinter dem Haus.", s2: "Mein Freund ist hinter dir." },
+                    { de: "neben", ph: "نێبەن", ku: "لەتەنیشت", s1: "Der Laden ist neben dem Markt.", s2: "Sitz neben mir." },
+                    { de: "zwischen", ph: "تسڤیشەن", ku: "لە نێوان", s1: "Die Straße ist zwischen zwei Häusern.", s2: "Ich bin zwischen zwei Freunden." },
+                    { de: "vor", ph: "فۆر", ku: "لە پێش", s1: "Das Auto ist vor dem Haus.", s2: "Die Tür ist vor dir." }
+                ]
+            },
+            // DAY 26
+            {
+                day: 26,
+                month: 1,
+                title: "ڕۆژی ٢٦: کارەکانی ڕۆژانە",
+                review: "تاقیکردنەوە: لە ناو، لەسەر، لە لای، لە ژێر، نزیک، لە پشت، لەتەنیشت، لە نێوان، لە پێش.",
+                task: "ئەمڕۆ هەوڵ بدە ڕۆژەکەت بە ئەلمانی بگێڕیتەوە، بۆ نموونە: Ich stehe um sechs auf. Ich fahre zur Arbeit...",
+                quote: "«ڕۆژێک کە دەتوانیت بیگێڕیتەوە، ڕۆژێکە کە ژیاویت.»",
+                quoteDesc: "ئەو ٥ ڕستەیەی بە ئەلمانی سەبارەت بە ڕۆژەکەت دەڵێیت، بەسوودترین ڕاهێنانن. ئێستا ٢٠٧ وشەت فێر بووە.",
+                grammar: "«aufstehen» و «anfangen» کردارە جیابووەکانن: «Ich stehe um sechs auf», بەشی «auf» دەچێتە کۆتایی ڕستەکە.",
+                words: [
+                    { de: "aufstehen", ph: "ئاوفشتێیەن", ku: "لە خەو هەستان", s1: "Ich stehe um sechs auf.", s2: "Ich stehe früh auf." },
+                    { de: "schlafen", ph: "شڵافەن", ku: "خەوتن", s1: "Ich schlafe um zehn.", s2: "Das Kind schläft jetzt." },
+                    { de: "waschen", ph: "ڤاشەن", ku: "شتن", s1: "Ich wasche meine Hände.", s2: "Ich wasche das Auto." },
+                    { de: "kochen", ph: "کۆخەن", ku: "لێنانی خواردن", s1: "Ich koche Reis.", s2: "Meine Mutter kocht Essen." },
+                    { de: "fahren", ph: "فارەن", ku: "لێخوڕین", s1: "Ich fahre einen Lastwagen.", s2: "Ich fahre zur Arbeit." },
+                    { de: "laufen", ph: "لاوفەن", ku: "پیاسەکردن / ڕاکردن", s1: "Ich laufe zum Laden.", s2: "Wir laufen nach Hause." },
+                    { de: "anfangen", ph: "ئانفانگەن", ku: "دەستپێکردن", s1: "Ich fange um acht an.", s2: "Die Maschine fängt jetzt an." },
+                    { de: "beenden", ph: "بەئێندەن", ku: "تەواوکردن", s1: "Ich beende die Arbeit um fünf.", s2: "Ich beende mein Essen." },
+                    { de: "sich ausruhen", ph: "زیش ئاوسڕووەن", ku: "پشوودان", s1: "Ich ruhe mich zu Hause aus.", s2: "Ich muss mich ausruhen." }
+                ]
+            },
+            // DAY 27
+            {
+                day: 27,
+                month: 1,
+                title: "ڕۆژی ٢٧: نرخ و کڕین",
+                review: "تاقیکردنەوە: لە خەو هەستان، خەوتن، شتن، لێنانی خواردن، لێخوڕین، پیاسەکردن، دەستپێکردن، تەواوکردن، پشوودان.",
+                task: "هەر ڕستەیەک جارێک بە دەنگی بەرز بڵێ، دوایی ٣ ڕستەی خۆت بنووسە.",
+                quote: "«ئەو کەسەی دەتوانێت بە دوو زمان بپرسێت چەندە، دوو هێندە دەرفەتی هەیە.»",
+                quoteDesc: "«Wie ist das Gewicht?» و «Wie viel kostet das?» دوو پرسیاری بنەڕەتین لە بازرگانیدا. ئێستا ٢١٦ وشەت فێر بووە.",
+                grammar: "«Behalten Sie» شێوەی ڕێزداری «Sie»یە، کە لەگەڵ کڕیار و کەسی نەناسراو بەکاری دەهێنیت.",
+                words: [
+                    { de: "billig", ph: "بیلیش", ku: "هەرزان", s1: "Das ist billig.", s2: "Das Eisen ist heute billig." },
+                    { de: "teuer", ph: "تۆیەر", ku: "گران", s1: "Dieses Auto ist teuer.", s2: "Es ist zu teuer." },
+                    { de: "bezahlen", ph: "بەتساڵەن", ku: "پارەدان", s1: "Ich bezahle heute.", s2: "Wie kann ich bezahlen?" },
+                    { de: "kosten", ph: "کۆستەن", ku: "نرخ بوون", s1: "Wie viel kostet das?", s2: "Es kostet zehn Dollar." },
+                    { de: "die Summe", ph: "دی زومە", ku: "کۆی گشتی", s1: "Wie viel ist die Summe?", s2: "Die Summe ist fünfzig." },
+                    { de: "das Wechselgeld", ph: "داس ڤێکسەڵگێڵت", ku: "پارەی زیادە", s1: "Ich brauche Wechselgeld.", s2: "Behalten Sie das Wechselgeld." },
+                    { de: "der Rabatt", ph: "دێر ڕاباتت", ku: "داشکاندن", s1: "Gibt es einen Rabatt?", s2: "Ich will einen Rabatt." },
+                    { de: "die Tüte", ph: "دی تیتە", ku: "جانتا / کیس", s1: "Ich brauche eine Tüte.", s2: "Die Tüte ist schwer." },
+                    { de: "das Gewicht", ph: "داس گەڤیشت", ku: "کێش", s1: "Wie ist das Gewicht?", s2: "Das Gewicht ist zu hoch." }
+                ]
+            },
+            // DAY 28
+            {
+                day: 28,
+                month: 1,
+                title: "ڕۆژی ٢٨: پێداچوونەوەی هەفتەی چوارەم",
+                review: "ئەمڕۆش وشەی نوێ نییە. چوار هەفتەت تەواو کرد (سەرجەم ٢١٦ وشە).",
+                task: "ئەم پێنج ڕستەیە بە دەنگی بەرز بڵێ و ٣ ڕستە بنووسە بۆ ناساندنی خۆت.",
+                quote: "«مانگی یەکەمت نزیکە تەواو بێت، و تۆ لە ئامانجەکەت تێپەڕیت.»",
+                quoteDesc: "ئامانجی مانگی یەکەم نزیکەی ١٠٠ تا ١٥٠ وشە بوو، و تۆ ٢١٦ وشەت فێر بووە. یاسای ١٠ خولەک کار دەکات!",
+                words: [
+                    { de: "Ich stehe auf", ph: "ئیش شتێیە ئاوف", ku: "لە خەو هەڵدەستێم و دەچم بۆ کار", s1: "Ich stehe um sechs auf und fahre zur Arbeit.", s2: "Er steht spät auf." },
+                    { de: "Ich bin müde", ph: "ئیش بین میدە", ku: "ماندووم بەڵام دڵخۆشم", s1: "Ich bin müde, aber glücklich.", s2: "Wir sind beschäftigt." },
+                    { de: "Wie viel kostet das?", ph: "ڤی فیل کۆستەت داس", ku: "نرخی ئەمە چەندە؟", s1: "Wie viel kostet das?", s2: "Wie viel kostet das Auto?" },
+                    { de: "Der Hammer unter dem Lastwagen", ph: "دێر هامەر ئونتەر دێم لاستڤاگەن", ku: "چەکوشەکە لە ژێر لۆرییەکەیە", s1: "Der Hammer ist unter dem Lastwagen.", s2: "Das Handy ist auf dem Tisch." },
+                    { de: "Schwester und Bruder", ph: "شڤێستەر ئونت برودەر", ku: "خوشک و برا", s1: "Sie ist meine Schwester und er ist mein Bruder.", s2: "Meine Familie ist hier." }
+                ]
+            },
+            // DAY 29
+            {
+                day: 29,
+                month: 1,
+                title: "ڕۆژی ٢٩: خۆناساندن",
+                review: "تاقیکردنەوە: هەرزان، گران، پارەدان، نرخ بوون، کۆی گشتی، پارەی زیادە، داشکاندن، کیس، کێش.",
+                task: "خۆناساندن: ٥ ڕستەی خۆت بنووسە (ناو، تەمەن، نیشتەجێبوون، خێزان، زمان).",
+                quote: "«ئەمڕۆ بۆ یەکەم جار دەتوانیت خۆت بناسێنیت، و ئەمە دەرگای هەموو گفتوگۆیەکە.»",
+                quoteDesc: "پێش ٢٩ ڕۆژ ئەم ڕستانەت نەدەتوانی بڵێیت. ئێستا ٢٢٥ وشەت فێر بووە.",
+                words: [
+                    { de: "wie alt", ph: "ڤی ئاڵت", ku: "چەند تەمەن", s1: "Wie alt bist du?", s2: "Ich bin dreißig Jahre alt." },
+                    { de: "das Jahr", ph: "داس یار", ku: "ساڵ", s1: "Dieses Jahr ist gut.", s2: "Ich lerne dieses Jahr Deutsch." },
+                    { de: "wohnen", ph: "ڤۆنەن", ku: "ژیان / نیشتەجێبوون", s1: "Ich wohne in der Stadt.", s2: "Wo wohnst du?" },
+                    { de: "das Land", ph: "داس لانت", ku: "وڵات", s1: "Mein Land ist groß.", s2: "Ich liebe mein Land." },
+                    { de: "die Sprache", ph: "دی شپراخە", ku: "زمان", s1: "Ich lerne eine neue Sprache.", s2: "Deutsch ist eine Sprache." },
+                    { de: "Kurdisch", ph: "کوردیش", ku: "کوردی", s1: "Ich spreche Kurdisch.", s2: "Kurdisch ist meine Sprache." },
+                    { de: "Deutsch", ph: "دۆیچ", ku: "ئەلمانی", s1: "Ich lerne Deutsch.", s2: "Sprichst du Deutsch?" },
+                    { de: "lernen", ph: "لێرنەن", ku: "فێربوون", s1: "Ich lerne neue Wörter.", s2: "Ich lerne jeden Tag Deutsch." },
+                    { de: "üben", ph: "ئیبەن", ku: "ڕاهێنان", s1: "Ich übe Deutsch.", s2: "Ich übe jeden Abend." }
+                ]
+            },
+            // DAY 30
+            {
+                day: 30,
+                month: 1,
+                title: "ڕۆژی ٣٠: کۆتایی مانگی یەکەم (Milestone & Voice Record)",
+                review: "تاقیکردنەوە: چەند تەمەن، ساڵ، ژیان، وڵات، زمان، کوردی، ئەلمانی، فێربوون، ڕاهێنان.",
+                task: "دەنگی خۆت بۆ ماوەی ١ خولەک تۆمار بکە و لە بەشی تۆمارکەری دەنگی پەیجەکە پاشەکەوتی بکە!",
+                quote: "«مانگێک ٣٠ ڕۆژە، و تۆ هەمووی بەردەوام بوویت.»",
+                quoteDesc: "لە سەرەتادا ١٠٠ تا ١٥٠ وشەت وەک ئامانج هەبوو، و ئێستا ٢٣٤ وشەت فێر بووە. ئەمە دەستکەوتێکی زۆر مەزنە!",
+                words: [
+                    { de: "Hallo", ph: "هالۆ", ku: "سڵاو", s1: "Hallo, mein Freund.", s2: "Hallo zusammen." },
+                    { de: "Wie geht es dir?", ph: "ڤی گێت ئێس دیر", ku: "چۆنیت؟", s1: "Hallo, wie geht es dir?", s2: "Wie geht es Ihnen?" },
+                    { de: "Mir geht es gut", ph: "میر گێت ئێس گووت", ku: "باشم", s1: "Mir geht es gut, danke.", s2: "Danke, mir geht es sehr gut." },
+                    { de: "Freut mich", ph: "فرۆیت میش", ku: "خۆشحاڵم بە ناسینت", s1: "Hallo, freut mich.", s2: "Freut mich sehr." },
+                    { de: "Entschuldigung", ph: "ئێنتشوڵدیگونگ", ku: "ببورە (بۆ سەرنجڕاکێشان)", s1: "Entschuldigung, wo ist der Laden?", s2: "Entschuldigung, wie viel kostet das?" },
+                    { de: "Willkommen", ph: "ڤیڵکۆمەن", ku: "بەخێربێیت", s1: "Willkommen in meinem Haus.", s2: "Willkommen hier." },
+                    { de: "Auf Wiedersehen", ph: "ئاوف ڤیدەرزێیەن", ku: "خوا حافیز", s1: "Auf Wiedersehen, mein Freund.", s2: "Tschüss, Auf Wiedersehen." },
+                    { de: "Bis später", ph: "بیس شپێتەر", ku: "دواتر یەکدی دەبینین", s1: "Auf Wiedersehen, bis später.", s2: "Tschüss, bis später." },
+                    { de: "Pass auf dich auf", ph: "پاس ئاوف دیش ئاوف", ku: "ئاگاداری خۆت بە", s1: "Danke, pass auf dich auf.", s2: "Tschüss, pass auf dich auf!" }
+                ]
+            },
+            // DAY 31
+            {
+                day: 31,
+                month: 2,
+                title: "ڕۆژی ٣١: مانگی دووەم: کۆتاییەکانی کردار (Präsens)",
+                review: "تاقیکردنەوە: دەربڕینەکانی سڵاو، چۆنیت، باشم، خۆشحاڵم، ببورە، خواحافیز بە دەنگی بەرز بڵێ.",
+                task: "٣ ڕستە بنووسە، یەک بۆ خۆت (ich) و دوو بۆ کەسێکی تر (er/sie).",
+                quote: "«یاسای بچووک دەتوانێت هەزار ڕستە ڕاست بکاتەوە.»",
+                quoteDesc: "کۆتایی کردار پیتێکی بچووکە، بەڵام هەڵەی زۆرترین کەسانی ئەلمانی فێرخوازە.",
+                grammar: `لە ئەلمانیدا کردارەکە بەپێی کەسەکە کۆتاییەکەی دەگۆڕێت:<br>
+• <strong>ich</strong>: -e (ich mache)<br>
+• <strong>du</strong>: -st (du machst)<br>
+• <strong>er/sie/es</strong>: -t (er macht)<br>
+• <strong>wir</strong>: -en (wir machen)<br>
+• <strong>ihr</strong>: -t (ihr macht)<br>
+• <strong>sie/Sie</strong>: -en (sie machen)`,
+                words: [
+                    { de: "schreiben", ph: "شرایبەن", ku: "نووسین", s1: "Ich schreibe meinen Namen.", s2: "Sie schreibt ihren Namen." },
+                    { de: "spielen", ph: "شپیلەن", ku: "یاری کردن", s1: "Ich spiele mit meinem Sohn.", s2: "Er spielt mit seinem Freund." },
+                    { de: "hören", ph: "هۆرەن", ku: "گوێگرتن", s1: "Ich höre meinen Freund.", s2: "Er hört mich." },
+                    { de: "sagen", ph: "زاگەن", ku: "وتن", s1: "Ich sage Hallo.", s2: "Sie sagt Auf Wiedersehen." },
+                    { de: "denken", ph: "دێنکەن", ku: "بیرکردنەوە", s1: "Ich denke, es ist gut.", s2: "Er denkt, es ist teuer." },
+                    { de: "holen", ph: "هۆلەن", ku: "هێنان (چوون و هێنان)", s1: "Ich hole das Wasser.", s2: "Er holt die Tasche." },
+                    { de: "zeigen", ph: "تسایگەن", ku: "پیشاندان", s1: "Ich zeige das Bild.", s2: "Sie zeigt den Weg." },
+                    { de: "suchen", ph: "زووخەن", ku: "گەڕان بەدوای", s1: "Ich suche meinen Hammer.", s2: "Sie sucht ihr Handy." },
+                    { de: "bringen", ph: "برینگەن", ku: "هێنان", s1: "Ich bringe Wasser.", s2: "Er bringt die Tasche." }
+                ]
+            },
+            // DAY 32
+            {
+                day: 32,
+                month: 2,
+                title: "ڕۆژی ٣٢: نەرێ (nicht و kein)",
+                review: "تاقیکردنەوە: نووسین، یاری کردن، گوێگرتن، وتن، بیرکردنەوە، هێنان، پیشاندان، گەڕان بەدوای.",
+                task: "٣ ڕستەی نەرێ بنووسە: بۆ نموونە «Ich trinke keinen Kaffee. Er arbeitet heute nicht.»",
+                quote: "«هەڵە لە فێربووندا دوژمن نییە، ئاماژەیە.»",
+                quoteDesc: "لە ئەلمانیدا «nicht» و «kein» تێکەڵکردنیان زۆرترین هەڵەیە. ئەگەر هەڵەت کرد، ئەمە ئاسایییە.",
+                grammar: `• <strong>nicht</strong>: کردار، ئاوەڵناو، یان ئاوەڵکار نەرێ دەکات (Ich arbeite nicht).<br>
+• <strong>kein</strong>: ناوێک نەرێ دەکات کە ئامرازی نادیاری لەگەڵە یان هیچی لەگەڵ نییە (Ich habe kein Auto / keine Zeit).`,
+                words: [
+                    { de: "meistens", ph: "مایستەنس", ku: "بەزۆری", s1: "Ich stehe meistens um sechs auf.", s2: "Er arbeitet meistens früh." },
+                    { de: "manchmal", ph: "مانشمال", ku: "هەندێک جار", s1: "Ich trinke manchmal Tee.", s2: "Sie kocht manchmal Reis." },
+                    { de: "oft", ph: "ئۆفت", ku: "زۆرجار", s1: "Ich rufe oft meinen Bruder an.", s2: "Er fährt oft den Lastwagen." },
+                    { de: "nur", ph: "نوور", ku: "تەنها", s1: "Ich trinke nur Wasser.", s2: "Er arbeitet nur hier." },
+                    { de: "auch", ph: "ئاوخ", ku: "هەروەها", s1: "Ich mag auch Tee.", s2: "Sie spricht auch Englisch." },
+                    { de: "sehr", ph: "زێر", ku: "زۆر", s1: "Das Eisen ist sehr schwer.", s2: "Ich bin sehr müde." },
+                    { de: "wirklich", ph: "ڤیرکلیش", ku: "بەڕاستی", s1: "Ich mag es wirklich.", s2: "Er braucht wirklich Hilfe." },
+                    { de: "vielleicht", ph: "فیلایشت", ku: "لەوانەیە", s1: "Vielleicht komme ich morgen.", s2: "Vielleicht ist es kalt." },
+                    { de: "zusammen", ph: "تسوزامەن", ku: "پێکەوە", s1: "Wir arbeiten zusammen.", s2: "Sie essen zusammen." }
+                ]
+            },
+            // DAY 33
+            {
+                day: 33,
+                month: 2,
+                title: "ڕۆژی ٣٣: پرسیار (بێ do / does)",
+                review: "تاقیکردنەوە: بەزۆری، هەندێک جار، زۆرجار، تەنها، هەروەها، زۆر، بەڕاستی، لەوانەیە، پێکەوە.",
+                task: "٣ پرسیار بنووسە و وەڵامەکانیان بدەرەوە.",
+                quote: "«ئەو کەسەی دەپرسێت، تەنها ساتێک نەزان دیارە. ئەو کەسەی نەپرسێت، هەمیشە نەزان دەمێنێتەوە.»",
+                quoteDesc: "ئێستا دەتوانیت ڕستەی ئاسایی بڵێیت، نەرێ بکەیت، و بپرسیت. ئەمانە سێ بنەمای هەموو گفتوگۆیەکن.",
+                grammar: `لە ئەلمانیدا پێویست بە وشەی یاریدەدەر (do/does) نییە:<br>
+• پرسیاری بەڵێ/نەخێر: کردار لە سەرەتا دێت (Arbeitest du?).<br>
+• پرسیاری W-Frage: وشەی پرسیار + کردار + کەس (Was isst du?).`,
+                words: [
+                    { de: "fragen", ph: "فراگەن", ku: "پرسیارکردن", s1: "Ich frage meinen Freund.", s2: "Er fragt nach dem Preis." },
+                    { de: "antworten", ph: "ئانتڤۆرتەن", ku: "وەڵامدانەوە", s1: "Ich antworte am Telefon.", s2: "Sie antwortet auf den Anruf." },
+                    { de: "verstehen", ph: "فێرشتێیەن", ku: "تێگەیشتن", s1: "Ich verstehe ein bisschen.", s2: "Er versteht Deutsch." },
+                    { de: "sich erinnern", ph: "زیش ئێرئینەرن", ku: "بیرهێنانەوە", s1: "Ich erinnere mich an seinen Namen.", s2: "Sie erinnert sich an den Preis." },
+                    { de: "vergessen", ph: "فێرگێسەن", ku: "لەبیرکردن", s1: "Ich vergesse das Wort.", s2: "Er vergisst die Nummer." },
+                    { de: "versuchen", ph: "فێرزووخەن", ku: "هەوڵدان", s1: "Ich versuche es wieder.", s2: "Sie versucht es jeden Tag." },
+                    { de: "benutzen", ph: "بەنوتسەن", ku: "بەکارهێنان", s1: "Ich benutze einen Hammer.", s2: "Er benutzt die Maschine." },
+                    { de: "finden", ph: "فیندەن", ku: "دۆزینەوە", s1: "Ich finde meinen Hammer.", s2: "Sie findet die Tür." },
+                    { de: "kennen", ph: "کێنەن", ku: "ناسین", s1: "Ich kenne seinen Namen.", s2: "Sie kennt meinen Bruder." }
+                ]
+            },
+            // DAY 34
+            {
+                day: 34,
+                month: 2,
+                title: "ڕۆژی ٣٤: ڕابردوو (Perfekt)",
+                review: "تاقیکردنەوە: پرسیارکردن، وەڵامدانەوە، تێگەیشتن، بیرهێنانەوە، لەبیرکردن، هەوڵدان، بەکارهێنان، دۆزینەوە، ناسین.",
+                task: "باسی دوێنێی خۆت بکە بە ٣ ڕستە و هەوڵ بدە بەشی ڕابردوو بخەیتە کۆتایی ڕستە.",
+                quote: "«ئەو کەسەی دەتوانێت باسی دوێنێ بکات، دەتوانێت لە دوێنێ فێر بێت.»",
+                quoteDesc: "ئێستا دەتوانیت ئەمڕۆ و دوێنێ بڵێیت، و ئەمە گفتوگۆکانت دوو هێندە دەکات.",
+                grammar: "شێوازی ڕابردوو (Perfekt): haben + بەشی ڕابردوو (Partizip II) لە کۆتایی ڕستە.<br>نموونە: machen → gemacht | gearbeitet | repariert.",
+                words: [
+                    { de: "putzen", ph: "پوتسەن", ku: "پاککردنەوە", s1: "Ich habe das Zimmer geputzt.", s2: "Sie hat das Haus geputzt." },
+                    { de: "besuchen", ph: "بەزووخەن", ku: "سەردانکردن", s1: "Ich habe meinen Bruder besucht.", s2: "Er hat den Schrottplatz besucht." },
+                    { de: "warten", ph: "ڤارتەن", ku: "چاوەڕێکردن", s1: "Ich habe zu Hause gewartet.", s2: "Er hat draußen gewartet." },
+                    { de: "öffnen", ph: "ئۆفنەن", ku: "کردنەوە", s1: "Ich habe die Tür geöffnet.", s2: "Er hat das Tor geöffnet." },
+                    { de: "zumachen", ph: "تسوماخەن", ku: "داخستن", s1: "Ich habe die Tür zugemacht.", s2: "Er hat den Laden zugemacht." },
+                    { de: "reparieren", ph: "ڕێپارییرەن", ku: "چاککردنەوە", s1: "Ich habe die Maschine repariert.", s2: "Er hat den Lastwagen repariert." },
+                    { de: "packen", ph: "پاکەن", ku: "بارکردن / پاککردن", s1: "Ich habe die Tasche gepackt.", s2: "Sie hat die Tasche gepackt." },
+                    { de: "zählen", ph: "تسێلەن", ku: "ژماردن", s1: "Ich habe das Geld gezählt.", s2: "Sie hat die Taschen gezählt." },
+                    { de: "arbeiten", ph: "ئاربایتەن", ku: "کارکردن", s1: "Ich habe gestern gearbeitet.", s2: "Er hat im Büro gearbeitet." }
+                ]
+            },
+            // DAY 35
+            {
+                day: 35,
+                month: 2,
+                title: "ڕۆژی ٣٥: پێداچوونەوەی هەفتەی پێنجەم",
+                review: "ئەمڕۆش وشەی نوێ نییە. پێنج هەفتەت تەواو کرد (٢٧٠ وشە و دەربڕین).",
+                task: "هەڵەکانی ئەم ٥ ڕستەیە چاک بکەرەوە: Er arbeiten auf dem Schrottplatz / Ich habe nicht Auto...",
+                quote: "«پێنج هەفتە، واتە ئێستا ئەلمانی بووەتە بەشێک لە ڕۆژەکەت.»",
+                quoteDesc: "ئەو ڕۆژانەی لە هەفتەی یەکەمدا دەستت پێکردبوو، ٩ وشەی سادەت فێر دەبوو. ئێستا دەتوانیت بپرسیت، نەرێ بکەیت، و باسی دوێنێ بکەیت.",
+                grammar: "چاککردنەوەی هەڵەکان:<br>1. Er arbeitet... (t پێویستە)<br>2. Ich habe kein Auto... (kein بۆ ناو)<br>3. Wo wohnst du?... (کردار دوای وشەی پرسیار)<br>4. Ich habe gestern gearbeitet... (gearbeite نەگەڕاوەتەوە بۆ ئینفینیتیڤ).",
+                words: [
+                    { de: "Er arbeitet auf dem Schrottplatz", ph: "ئێر ئاربایتەت...", ku: "ئەو لە مەیدانی سکراپ کار دەکات", s1: "Er arbeitet auf dem Schrottplatz.", s2: "Ich arbeite hier." },
+                    { de: "Ich habe kein Auto", ph: "ئیش هابە کاین ئاوتۆ", ku: "من هیچ ئۆتۆمبێلێکم نییە", s1: "Ich habe kein Auto.", s2: "Er hat kein Geld." },
+                    { de: "Wo wohnst du?", ph: "ڤۆ ڤۆنست دو", ku: "لە کوێ دەژیت؟", s1: "Wo wohnst du jetzt?", s2: "Wo wohnt er?" },
+                    { de: "Gestern gearbeitet", ph: "گێستەرن گێئاربایتێت", ku: "دوێنێ کارم کرد", s1: "Ich habe gestern gearbeitet.", s2: "Er hat gestern gearbeitet." },
+                    { de: "Bei Erbil Steel", ph: "بای هەولێر ستیل", ku: "لە ئۆفیسی هەولێر ستیل", s1: "Er arbeitet bei Erbil Steel.", s2: "Ich bin bei Erbil Steel." }
+                ]
+            },
+            // DAY 36
+            {
+                day: 36,
+                month: 2,
+                title: "ڕۆژی ٣٦: ڕابردووی نایاسایی (Irregular Verben)",
+                review: "تاقیکردنەوە: پاککردنەوە، سەردانکردن، چاوەڕێکردن، کردنەوە، داخستن، چاککردنەوە، بارکردن، ژماردن.",
+                task: "باسی دوێنێی خۆت بکە بە ٣ ڕستە، ئەمجارە کردارە نایاساییەکان بەکاربهێنە.",
+                quote: "«ئەو کردارانەی لەبەر دەکرێن، ئەوانەن کە زۆرترین جار بەکار دێن.»",
+                quoteDesc: "gehen و essen و sehen و kommen هەموو ڕۆژێک لە ژیانتدا دەکرێن، بۆیە شێوازی تایبەتیان هەیە.",
+                grammar: "لەگەڵ «sein» (جووڵە و گۆڕانکاری): gehen → ist gegangen, kommen → ist gekommen.<br>لەگەڵ «haben»: essen → hat gegessen, sehen → hat gesehen.",
+                words: [
+                    { de: "gehen", ph: "گێیەن", ku: "چوون (ist gegangen)", s1: "Ich bin zur Arbeit gegangen.", s2: "Er ist nach Hause gegangen." },
+                    { de: "essen", ph: "ئێسەن", ku: "خواردن (hat gegessen)", s1: "Ich habe Brot gegessen.", s2: "Sie hat Reis gegessen." },
+                    { de: "sehen", ph: "زێیەن", ku: "بینین (hat gesehen)", s1: "Ich habe meinen Freund gesehen.", s2: "Er hat den Lastwagen gesehen." },
+                    { de: "bleiben", ph: "بلایبەن", ku: "مانەوە (ist geblieben)", s1: "Ich bin zu Hause geblieben.", s2: "Er ist bei der Arbeit geblieben." },
+                    { de: "nehmen", ph: "نێیمەن", ku: "وەرگرتن (hat genommen)", s1: "Ich habe die Tasche genommen.", s2: "Sie hat das Wasser genommen." },
+                    { de: "kommen", ph: "کۆمەن", ku: "هاتن (ist gekommen)", s1: "Ich bin früh gekommen.", s2: "Er ist spät gekommen." },
+                    { de: "geben", ph: "گێبەن", ku: "دان (hat gegeben)", s1: "Ich habe ihm Geld gegeben.", s2: "Sie hat mir Wasser gegeben." },
+                    { de: "fahren", ph: "فارەن", ku: "لێخوڕین / ڕۆیشتن (ist gefahren)", s1: "Ich bin mit dem Lastwagen gefahren.", s2: "Er ist nach Hause gefahren." },
+                    { de: "tragen", ph: "تراگەن", ku: "هەڵگرتن / لەبەرکردن (hat getragen)", s1: "Ich habe den Hammer getragen.", s2: "Sie hat die Tasche getragen." }
+                ]
+            },
+            // DAY 37
+            {
+                day: 37,
+                month: 2,
+                title: "ڕۆژی ٣٧: کاتی ڕابردوو (vor و letzte)",
+                review: "تاقیکردنەوە: واتای کوردی بخوێنەوە و شێوەی ڕابردووەکەی بڵێ (گەین -> ist gegangen...).",
+                task: "٣ ڕستە بنووسە کە «vor» یان «letzte»یان تێدایە.",
+                quote: "«ئەو کەسەی دەزانێت کەی شتێک ڕوویدا، دەتوانێت ڕووداوەکە بگێڕێتەوە.»",
+                quoteDesc: "ئێستا دەتوانیت بڵێیت چی کردووە و کەی کردووە، واتە ڕستەیەکی تەواوی گێڕانەوە.",
+                grammar: "• letzte Woche / letzten Monat / letztes Jahr (هەفتەی / مانگی / ساڵی ڕابردوو)<br>• vor + ماوە (لەمەوپێش): vor zwei Tagen, vor einem Jahr.",
+                words: [
+                    { de: "sprechen", ph: "شپرێشەن", ku: "قسەکردن (hat gesprochen)", s1: "Ich habe mit meinem Bruder gesprochen.", s2: "Sie hat Deutsch gesprochen." },
+                    { de: "schreiben", ph: "شرایبەن", ku: "نووسین (hat geschrieben)", s1: "Ich habe eine Nachricht geschrieben.", s2: "Er hat seinen Namen geschrieben." },
+                    { de: "trinken", ph: "ترینکەن", ku: "خواردنەوە (hat getrunken)", s1: "Ich habe Tee getrunken.", s2: "Sie hat Wasser getrunken." },
+                    { de: "schlafen", ph: "شڵافەن", ku: "خەوتن (hat geschlafen)", s1: "Ich habe früh geschlafen.", s2: "Er hat um zehn geschlafen." },
+                    { de: "wissen", ph: "ڤیسەن", ku: "زانین (hat gewusst)", s1: "Ich habe den Preis gewusst.", s2: "Sie hat meinen Namen gewusst." },
+                    { de: "denken", ph: "دێنکەن", ku: "بیرکردنەوە (hat gedacht)", s1: "Ich habe gedacht, es ist billig.", s2: "Er hat an seine Familie gedacht." },
+                    { de: "bringen", ph: "برینگەن", ku: "هێنان (hat gebracht)", s1: "Ich habe Wasser gebracht.", s2: "Sie hat die Tasche gebracht." },
+                    { de: "lesen", ph: "لێزەن", ku: "خوێندنەوە (hat gelesen)", s1: "Ich habe gestern ein Buch gelesen.", s2: "Sie hat die Nachricht gelesen." },
+                    { de: "verlassen", ph: "فێرلاسەن", ku: "بەجێهێشتن (hat verlassen)", s1: "Ich habe um sechs das Haus verlassen.", s2: "Er hat den Hof verlassen." }
+                ]
+            },
+            // DAY 38
+            {
+                day: 38,
+                month: 2,
+                title: "ڕۆژی ٣٨: داهاتوو (werden)",
+                review: "تاقیکردنەوە: قسەکردن، نووسین، خواردنەوە، خەوتن، زانین، بیرکردنەوە، هێنان، خوێندنەوە، بەجێهێشتن.",
+                task: "باسی سبەینێ و هەفتەی داهاتووی خۆت بکە بە ٣ ڕستە.",
+                quote: "«ئەو کەسەی دەتوانێت بڵێت «ich werde»، پێشتر نیوەی ڕێگاکەی بڕیوە.»",
+                quoteDesc: "ئێستا دەتوانیت باسی ڕابردوو و ئێستا و داهاتوو بکەیت، واتە هەر سێ کاتە سەرەکییەکە.",
+                grammar: "کاتی داهاتوو (Zukunft): werden + ئینفینیتیڤ لە کۆتایی ڕستەکە.<br>ich werde | du wirst | er/sie/es wird | wir werden.",
+                words: [
+                    { de: "der Monat", ph: "دێر مۆنات", ku: "مانگ", s1: "Ich arbeite diesen Monat.", s2: "Nächsten Monat ist es kalt." },
+                    { de: "nächste", ph: "نێکستە", ku: "داهاتوو", s1: "Ich komme nächste Woche.", s2: "Bis nächsten Monat." },
+                    { de: "bald", ph: "بالت", ku: "بەم زووانە", s1: "Ich rufe dich bald an.", s2: "Er kommt bald an." },
+                    { de: "heute Abend", ph: "هۆیتە ئابەنت", ku: "ئەمشەو", s1: "Ich schlafe heute Abend früh.", s2: "Wir essen heute Abend zusammen." },
+                    { de: "der Plan", ph: "دێر پلان", ku: "پلان", s1: "Ich habe einen Plan.", s2: "Was ist dein Plan?" },
+                    { de: "entscheiden", ph: "ئێنتشایدەن", ku: "بڕیاردان", s1: "Ich werde morgen entscheiden.", s2: "Er wird bald entscheiden." },
+                    { de: "hoffen", ph: "هۆفەن", ku: "هیوادار بوون", s1: "Ich hoffe, es ist gut.", s2: "Ich hoffe, du kommst." },
+                    { de: "versprechen", ph: "فێرشپرێشەن", ku: "بەڵێن", s1: "Ich verspreche, ich komme.", s2: "Er hat es mir versprochen." },
+                    { de: "reisen", ph: "ڕایزەن", ku: "گەشتکردن", s1: "Ich werde nächstes Jahr reisen.", s2: "Er reist nach Erbil." }
+                ]
+            },
+            // DAY 39
+            {
+                day: 39,
+                month: 2,
+                title: "ڕۆژی ٣٩: کرداری یاریدەدەر (können / müssen / sollen / dürfen)",
+                review: "تاقیکردنەوە: مانگ، داهاتوو، بەم زووانە، ئەمشەو، پلان، بڕیاردان، هیوادار بوون، بەڵێن، گەشتکردن.",
+                task: "٣ ڕستە بنووسە: بۆ نموونە «Ich kann einen Lastwagen fahren. Ich muss einen Helm tragen.»",
+                quote: "«کاتێک بڵێیت «ich kann»، مێشکت دەست دەکات بە دۆزینەوەی ڕێگا.»",
+                quoteDesc: "können (دەتوانم)، müssen (دەبێت)، sollen (باشترە)، dürfen (ڕێگەپێدراوە).",
+                grammar: "کرداری یاریدەدەر (Modalverben) دەچێتە وشەی دووەم، و ئینفینیتیڤ دەچێتە کۆتایی ڕستەکە بێ «zu».<br>کۆتایی -t بۆ er/sie/es نییە: er kann, er muss.",
+                words: [
+                    { de: "anziehen", ph: "ئانتسیێن", ku: "لەبەرکردن", s1: "Ich muss einen Helm anziehen.", s2: "Du solltest Handschuhe anziehen." },
+                    { de: "der Helm", ph: "دێر هێلم", ku: "کڵاوی پاراستن", s1: "Der Helm ist neu.", s2: "Du musst einen Helm tragen." },
+                    { de: "die Handschuhe", ph: "دی هانتشووهە", ku: "دەستکێش", s1: "Ich brauche Handschuhe.", s2: "Die Handschuhe sind alt." },
+                    { de: "vorsichtig", ph: "فۆرزیشتیش", ku: "وریا", s1: "Sei bitte vorsichtig.", s2: "Du solltest vorsichtig sein." },
+                    { de: "wichtig", ph: "ڤیشتیش", ku: "گرنگ", s1: "Das ist wichtig.", s2: "Sicherheit ist wichtig." },
+                    { de: "gefährlich", ph: "گەفێرلیش", ku: "مەترسیدار", s1: "Das Feuer ist gefährlich.", s2: "Es ist hier gefährlich." },
+                    { de: "genug", ph: "گەنووگ", ku: "بەشی هەبێت", s1: "Ich habe genug Zeit.", s2: "Das Wasser ist nicht genug." },
+                    { de: "richtig", ph: "ڕیشتیش", ku: "ڕاست / دروست", s1: "Das ist richtig.", s2: "Das ist die richtige Tür." },
+                    { de: "falsch", ph: "فاڵش", ku: "هەڵە", s1: "Das ist falsch.", s2: "Ich denke, das ist falsch." }
+                ]
+            },
+            // DAY 40
+            {
+                day: 40,
+                month: 2,
+                title: "ڕۆژی ٤٠: der / die / das و فرە (Plural & Akkusativ)",
+                review: "تاقیکردنەوە: لەبەرکردن، کڵاوی پاراستن، دەستکێش، وریا، گرنگ، مەترسیدار، بەشی هەبێت، ڕاست، هەڵە.",
+                task: "ڕاهێنانی ئامرازەکان بکە و فرەی وشەکان بنووسە.",
+                quote: "«وشە بچووکەکان ئەو شتانەن کە ڕستە لە «تێگەیشتراو» دەکەن بە «سروشتی».»",
+                quoteDesc: "لە بەرکاردا (Akkusativ) تەنها نێر (der) دەگۆڕێت بۆ (den / einen / meinen).",
+                grammar: "• der (نێر)، die (مێ)، das (بێلایەن)، die (فرە).<br>• بەرکار (Akkusativ): der → den, ein → einen.",
+                words: [
+                    { de: "die Kiste", ph: "دی کیستە", ku: "سندوق (die Kisten)", s1: "Ich habe eine Kiste.", s2: "Ich habe drei Kisten." },
+                    { de: "das Stück", ph: "داس شتیک", ku: "پارچە (die Stücke)", s1: "Ich brauche ein Stück Eisen.", s2: "Ich habe zwei Stücke." },
+                    { de: "der Arbeiter", ph: "دێر ئارباتەر", ku: "کرێکار (die Arbeiter)", s1: "Er ist ein Arbeiter.", s2: "Die Arbeiter sind hier." },
+                    { de: "der Kunde", ph: "دێر کوندە", ku: "کڕیار (die Kunden)", s1: "Der Kunde ist hier.", s2: "Wir haben zwei Kunden." },
+                    { de: "die Tonne", ph: "دی تۆنە", ku: "تەن کێش (die Tonnen)", s1: "Der Lastwagen hat eine Tonne.", s2: "Ich habe zehn Tonnen verkauft." },
+                    { de: "das Kilo", ph: "داس کیلۆ", ku: "کیلۆ (die Kilos)", s1: "Ich brauche ein Kilo.", s2: "Ich habe fünf Kilo gekauft." },
+                    { de: "die Flasche", ph: "دی فلاشە", ku: "بوتڵ (die Flaschen)", s1: "Ich habe eine Flasche.", s2: "Zwei Flaschen, bitte." },
+                    { de: "der Schlüssel", ph: "دێر شلیسەل", ku: "کلیل (die Schlüssel)", s1: "Ich habe einen Schlüssel.", s2: "Ich habe zwei Schlüssel." },
+                    { de: "die Liste", ph: "دی لیستە", ku: "لیست (die Listen)", s1: "Ich habe eine Liste.", s2: "Ich habe zwei Listen." }
+                ]
+            },
+            // DAY 41
+            {
+                day: 41,
+                month: 2,
+                title: "ڕۆژی ٤١: بەراوردکردن (Komparativ -er + als)",
+                review: "تاقیکردنەوە: سندوق، پارچە، کرێکار، کڕیار، تەن، کیلۆ، بوتڵ، کلیل، لیست.",
+                task: "٣ ڕستەی بەراورد لە کارەکەتەوە بنووسە: «Mein Lastwagen ist größer als mein Auto...»",
+                quote: "«بەراوردکردن بە خۆت، نەک بە کەسانی تر، ڕێگای پێشکەوتنە.»",
+                quoteDesc: "«Heute ist mein Deutsch besser als gestern.» ئەمە ڕستەیەکە کە ٤١ ڕۆژ ڕاستی پێدەدات.",
+                grammar: "بەراوردکردن: ئاوەڵناو + er + als.<br>سود لە ئومڵاوت وەردەگیرێت (lang → länger, groß → größer). نایاسایی: gut → besser.",
+                words: [
+                    { de: "schnell", ph: "شنێڵ", ku: "خێرا (schneller)", s1: "Diese Maschine ist schnell.", s2: "Diese Maschine ist schneller als die andere." },
+                    { de: "langsam", ph: "لانگزام", ku: "هێواش (langsamer)", s1: "Der Lastwagen ist langsam.", s2: "Der alte Lastwagen ist langsamer als der neue." },
+                    { de: "lang", ph: "لانگ", ku: "درێژ (länger)", s1: "Der Weg ist lang.", s2: "Dieser Weg ist länger als jener Weg." },
+                    { de: "kurz", ph: "کورتس", ku: "کورت (kürzer)", s1: "Die Liste ist kurz.", s2: "Meine Liste ist kürzer als deine Liste." },
+                    { de: "sauber", ph: "زاوبەر", ku: "پاک (sauberer)", s1: "Das Zimmer ist sauber.", s2: "Dieses Zimmer ist sauberer als das andere." },
+                    { de: "schmutzig", ph: "شموتسیش", ku: "پیس (schmutziger)", s1: "Der Hof ist schmutzig.", s2: "Der Hof ist schmutziger als die Straße." },
+                    { de: "voll", ph: "فۆڵ", ku: "پڕ (voller)", s1: "Die Kiste ist voll.", s2: "Diese Kiste ist voller als jene Kiste." },
+                    { de: "leer", ph: "لێر", ku: "بەتاڵ (leerer)", s1: "Die Flasche ist leer.", s2: "Diese Flasche ist leerer als jene Flasche." },
+                    { de: "hoch", ph: "هۆخ", ku: "بەرز (höher)", s1: "Der Preis ist hoch.", s2: "Der Preis ist heute höher als gestern." }
+                ]
+            },
+            // DAY 42
+            {
+                day: 42,
+                month: 2,
+                title: "ڕۆژی ٤٢: پێداچوونەوەی هەفتەی شەشەم",
+                review: "ئەمڕۆش وشەی نوێ نییە. شەش هەفتەت تەواو کرد (٣٢٤ وشە).",
+                task: "هەڵەکانی ئەم ٥ ڕستەیە چاک بکەرەوە: Er hat nach Hause gegangen / Ich werde morgen kommt...",
+                quote: "«شەش هەفتە، واتە ئێستا دەتوانیت باسی هەر سێ کاتەکە بکەیت.»",
+                quoteDesc: "ئێستا دەتوانیت باسی ڕابردوو و ئێستا و داهاتوو بکەیت، بپرسیت، نەرێ بکەیت، و شتەکان بەراورد بکەیت.",
+                grammar: "چاککردنەوەکان:<br>1. Er ist nach Hause gegangen (sein)<br>2. Ich werde morgen kommen (ئینفینیتیڤ)<br>3. Sie kann Deutsch sprechen (ئینفینیتیڤ)<br>4. Ich habe einen Schlüssel (Akkusativ)<br>5. Dieser Weg ist länger als...",
+                words: [
+                    { de: "Gestern gegangen", ph: "گێستەرن گێگانگەن", ku: "دوێنێ چووم بۆ کار و سندوقێک ئاسنم کڕی", s1: "Gestern bin ich zur Arbeit gegangen und habe eine Kiste Eisen gekauft.", s2: "Er ist gegangen." },
+                    { de: "Morgen anrufen", ph: "مۆرگەن ئانڕووفەن", ku: "سبەینێ تەلەفۆن بۆ برام دەکەم", s1: "Ich rufe morgen meinen Bruder an.", s2: "Er ruft mich an." },
+                    { de: "Helm tragen", ph: "هێلم تراگەن", ku: "دەبێت کڵاو لەبەر بکەیت چونکە مەترسیدارە", s1: "Du musst einen Helm tragen, weil es gefährlich ist.", s2: "Sicherheit zuerst." },
+                    { de: "Lastwagen größer", ph: "لاستڤاگەن گرۆسەر", ku: "ئەم لۆرییە گەورەترە لەوەی تر", s1: "Dieser Lastwagen ist größer als jener Lastwagen.", s2: "Das Auto ist klein." },
+                    { de: "Früh geschlafen", ph: "فریو گێشڵافەن", ku: "دوێنێ شەو زوو خەوتم", s1: "Ich habe letzte Nacht früh geschlafen.", s2: "Er hat spät geschlafen." }
+                ]
+            },
+            // DAY 43
+            {
+                day: 43,
+                month: 2,
+                title: "ڕۆژی ٤٣: ئێستا (gerade) و کردارە جیابووەکان",
+                review: "تاقیکردنەوە: ڕستەکانی دوێنێ بە دەنگی بەرز بڵێوه.",
+                task: "شێوەی دروستی کردارەکان ڕێکبخەرەوە و ڕستەی خۆت بنووسە.",
+                quote: "«ئەوەی ئێستا دەیکەیت، ئەوەیە کە دەتبات بۆ ئەوەی سبەینێ دەبیت.»",
+                quoteDesc: "«Ich lerne gerade Deutsch» ڕستەیەکە کە ئەمڕۆ بە ڕاستی دەتوانیت بیڵێیت.",
+                grammar: "لە ئەلمانیدا کاتی بەردەوام (-ing) نییە، بۆ جەختکردنەوە «gerade» زیاد دەکرێت (Ich arbeite gerade).<br>کردارە جیابووەکان: پێشگرەکە دەچێتە کۆتایی (Ich rufe ihn gerade an).",
+                words: [
+                    { de: "sitzen", ph: "زیتسەن", ku: "دانیشتن", s1: "Ich sitze gerade im Lastwagen.", s2: "Sie sitzt gerade hier." },
+                    { de: "stehen", ph: "شتێیەن", ku: "ڕاوەستان", s1: "Ich stehe gerade an der Tür.", s2: "Er steht neben der Maschine." },
+                    { de: "schauen", ph: "شاوەن", ku: "سەیرکردن", s1: "Ich schaue gerade nach dem Preis.", s2: "Sie schaut gerade auf den Preis." },
+                    { de: "laufen", ph: "لاوفەن", ku: "ڕاکردن", s1: "Ich laufe gerade zum Laden.", s2: "Das Kind läuft gerade." },
+                    { de: "anrufen", ph: "ئانڕووفەن", ku: "تەلەفۆنکردن", s1: "Ich rufe gerade meinen Bruder an.", s2: "Er ruft gerade den Kunden an." },
+                    { de: "ankommen", ph: "ئانکۆمەن", ku: "گەیشتن", s1: "Ich komme gerade an.", s2: "Der Lastwagen kommt gerade an." },
+                    { de: "einkaufen", ph: "ئاینکاوفەن", ku: "کڕین (بازاڕکردن)", s1: "Ich kaufe gerade ein.", s2: "Sie kauft gerade auf dem Markt ein." },
+                    { de: "abholen", ph: "ئابهۆلەن", ku: "هەڵگرتن (لە شوێنێک)", s1: "Ich hole gerade das Kind ab.", s2: "Er holt gerade den Kunden ab." },
+                    { de: "aufräumen", ph: "ئاوفڕۆیمەن", ku: "ڕێکخستن", s1: "Ich räume gerade das Zimmer auf.", s2: "Sie räumt gerade den Hof auf." }
+                ]
+            },
+            // DAY 44
+            {
+                day: 44,
+                month: 2,
+                title: "ڕۆژی ٤٤: پلانی داهاتوو (ich habe vor)",
+                review: "تاقیکردنەوە: دانیشتن، ڕاوەستان، سەیرکردن، ڕاکردن، تەلەفۆنکردن، گەیشتن، کڕین، هەڵگرتن، ڕێکخستن.",
+                task: "ڕستەی مێشکت بە «Ich habe vor, ... zu + ئینفینیتیڤ» بنووسە.",
+                quote: "«پلانێک کە دەیڵێیت، لە بەڵێنێک کە تەنها لە مێشکتدایە، نزیکترە لە ئەنجامدانەوە.»",
+                quoteDesc: "کاتێک بە دەنگی بەرز دەڵێیت «Ich habe vor, ...»، لە ڕاستیدا بەڵێنێک بە خۆت دەدەیت.",
+                grammar: "• Ich habe vor, ... zu + ئینفینیتیڤ (پلانم هەیە...)<br>• يا سای زۆر گرنگ: کردار هەمیشە وشەی دووەمە لە ڕستەی ئەلمانیدا (Morgen arbeite ich...).",
+                words: [
+                    { de: "treffen", ph: "تڕێفەن", ku: "چاوپێکەوتن", s1: "Ich habe vor, meinen Freund zu treffen.", s2: "Er hat vor, den Kunden zu treffen." },
+                    { de: "schicken", ph: "شیکەن", ku: "ناردن", s1: "Ich habe vor, eine Nachricht zu schicken.", s2: "Sie hat vor, ein Bild zu schicken." },
+                    { de: "schweißen", ph: "شڤایسەن", ku: "جۆشکردن", s1: "Ich habe vor, das Tor zu schweißen.", s2: "Er hat vor, die Tür zu schweißen." },
+                    { de: "bauen", ph: "باوەن", ku: "دروستکردن", s1: "Ich habe vor, ein Zimmer zu bauen.", s2: "Er hat vor, ein Haus zu bauen." },
+                    { de: "wählen", ph: "ڤێلەن", ku: "هەڵبژاردن", s1: "Ich habe vor, eine Farbe zu wählen.", s2: "Sie hat vor, ein Auto zu wählen." },
+                    { de: "besprechen", ph: "بەشپرێشەن", ku: "گفتوگۆکردن لەسەر", s1: "Ich habe vor, den Preis zu besprechen.", s2: "Er hat vor, den Plan zu besprechen." },
+                    { de: "bestellen", ph: "بەشتێلەن", ku: "داواکردن", s1: "Ich habe vor, Essen zu bestellen.", s2: "Sie hat vor, Tee zu bestellen." },
+                    { de: "prüfen", ph: "پریفەن", ku: "پشکنین", s1: "Ich habe vor, den Preis zu prüfen.", s2: "Er hat vor, den Lastwagen zu prüfen." },
+                    { de: "liefern", ph: "لیفەرن", ku: "گەیاندن", s1: "Ich habe vor, das Eisen zu liefern.", s2: "Er hat vor, die Kisten zu liefern." }
+                ]
+            },
+            // DAY 45
+            {
+                day: 45,
+                month: 2,
+                title: "ڕۆژی ٤٥: wollen / müssen / möchten + ئینفینیتیڤ",
+                review: "تاقیکردنەوە: چاوپێکەوتن، ناردن، جۆشکردن، دروستکردن، هەڵبژاردن، گفتوگۆکردن، داواکردن، پشکنین، گەیاندن.",
+                task: "٣ ڕستە بە wollen, müssen, möchten بنووسە.",
+                quote: "«ویستن و پێویستبوون و ناچاربوون سێ وشەی جیاوازن، و ئەوەی دەیزانیت کامیان بەکاربهێنێت، ئامانجەکەی دیار دەکات.»",
+                quoteDesc: "«Ich will Deutsch lernen» ئاواتە، «Ich muss jeden Tag üben» پێداویستییە.",
+                grammar: "wollen (دەمەوێت)، müssen (دەبێت / ناچارم)، möchten (حەز دەکەم بە ڕێزەوە).<br>دوای ئەمانە، ئینفینیتیڤ دەچێتە کۆتایی ڕستەکە بێ «zu».",
+                words: [
+                    { de: "die Besprechung", ph: "دی بەشپرێشونگ", ku: "کۆبوونەوە", s1: "Ich habe heute eine Besprechung.", s2: "Ich muss zur Besprechung gehen." },
+                    { de: "die Lieferung", ph: "دی لیفەرونگ", ku: "گەیاندن", s1: "Die Lieferung ist morgen.", s2: "Ich muss die Lieferung prüfen." },
+                    { de: "die Zahlung", ph: "دی تسالونگ", ku: "پارەدان", s1: "Ich will eine Zahlung machen.", s2: "Die Zahlung ist nicht bereit." },
+                    { de: "die Quittung", ph: "دی کڤیتونگ", ku: "وەسڵ", s1: "Ich brauche eine Quittung.", s2: "Willst du die Quittung behalten?" },
+                    { de: "die Rechnung", ph: "دی ڕێشنونگ", ku: "فاتورە / قەرز", s1: "Ich muss die Rechnung bezahlen.", s2: "Die Rechnung ist diesen Monat hoch." },
+                    { de: "das Angebot", ph: "داس ئانگەبۆت", ku: "پێشنیار", s1: "Ich habe ein gutes Angebot.", s2: "Ich will das Angebot nicht nehmen." },
+                    { de: "die Abmachung", ph: "دی ئابماخونگ", ku: "مامەڵە", s1: "Wir haben eine Abmachung.", s2: "Ich will eine Abmachung machen." },
+                    { de: "der Vertrag", ph: "دێر فێرتراگ", ku: "گرێبەست", s1: "Ich muss den Vertrag lesen.", s2: "Er will den Vertrag unterschreiben." },
+                    { de: "die Qualität", ph: "دی کڤالیتێت", ku: "کوالیتی", s1: "Die Qualität ist gut.", s2: "Ich will die Qualität prüfen." }
+                ]
+            },
+            // DAY 46
+            {
+                day: 46,
+                month: 2,
+                title: "ڕۆژی ٤٦: es gibt (there is / there are)",
+                review: "تاقیکردنەوە: کۆبوونەوە، گەیاندن، پارەدان، وەسڵ، فاتورە، پێشنیار، مامەڵە، گرێبەست، کوالیتی.",
+                task: "ژوورەکەت یان مەیدانەکەت بە ٣ ڕستە بە «Es gibt ...» وەسف بکە.",
+                quote: "«ئەو کەسەی دەتوانێت بڵێت چی لە دەوروبەریدایە، دەتوانێت جیهانەکەی بە ئەلمانی وەسف بکات.»",
+                quoteDesc: "ئەمڕۆ دەتوانیت ژوورەکەت، مەیدانەکەت، یان ماڵەکەت بە ئەلمانی وەسف بکەیت. ئێستا ٣٦٠ وشەت فێر بووە.",
+                grammar: "es gibt + بەرکار (Akkusativ): هەمیشە «gibt» دەمێنێتەوە تەنانەت بۆ فرەش (Es gibt zwei Lastwagen). نەرێ: kein / keine.",
+                words: [
+                    { de: "das Tor", ph: "داس تۆر", ku: "دەروازە", s1: "Es gibt ein Tor am Schrottplatz.", s2: "Es gibt zwei Tore." },
+                    { de: "die Wand", ph: "دی ڤانت", ku: "دیوار", s1: "Es gibt eine Wand hinter dem Haus.", s2: "Es gibt vier Wände im Zimmer." },
+                    { de: "der Boden", ph: "دێر بۆدەن", ku: "زەوی / ئەرزی ژوور", s1: "Es gibt Wasser auf dem Boden.", s2: "Es gibt Kisten auf dem Boden." },
+                    { de: "das Fenster", ph: "داس فێنستەر", ku: "پەنجەرە", s1: "Es gibt ein Fenster im Zimmer.", s2: "Es gibt zwei Fenster im Büro." },
+                    { de: "der Tisch", ph: "دێر تیش", ku: "مێز", s1: "Es gibt ein Handy auf dem Tisch.", s2: "Es gibt drei Tassen auf dem Tisch." },
+                    { de: "der Stuhl", ph: "دێر شتووڵ", ku: "کورسی", s1: "Es gibt einen Stuhl neben der Tür.", s2: "Es gibt vier Stühle im Zimmer." },
+                    { de: "das Regal", ph: "داس ڕێگاڵ", ku: "ڕەف", s1: "Es gibt einen Hammer im Regal.", s2: "Es gibt Werkzeuge im Regal." },
+                    { de: "die Waage", ph: "دی ڤاگە", ku: "تەرازوو", s1: "Es gibt eine Waage auf dem Schrottplatz.", s2: "Es gibt zwei Waagen im Büro." },
+                    { de: "das Dach", ph: "داس داخ", ku: "سەربان", s1: "Es gibt Schnee auf dem Dach.", s2: "Es gibt zwei Lastwagen unter dem Dach." }
+                ]
+            },
+            // DAY 47
+            {
+                day: 47,
+                month: 2,
+                title: "ڕۆژی ٤٧: dieser / diese / dieses و خاوەندارێتی (Alis)",
+                review: "تاقیکردنەوە: دەروازە، دیوار، زەوی، پەنجەرە، مێز، کورسی، ڕەف، تەرازوو، سەربان.",
+                task: "لە ماڵەوە بگەڕێ و ئاماژە بە ٣ شت بکە بە «Das ist ein... Das sind...».",
+                quote: "«ئەوەی ناوی شتەکان بزانێت، دەتوانێت جیهانەکەی بەڕێوە ببات.»",
+                quoteDesc: "ئەمڕۆ ٩ ناوی شتی ماڵەوەت فێر بوو. ئێستا ٣٦٩ وشەت فێر بووە.",
+                grammar: "• dieser (نێر)، diese (مێ/فرە)، dieses (بێلایەن) = ئەم.<br>• خاوەندارێتی: -s بۆ ناوی کەس بێ ئەپۆستڕۆف (Alis Lastwagen).",
+                words: [
+                    { de: "das Bett", ph: "داس بێت", ku: "جێگا", s1: "Ich schlafe in diesem Bett.", s2: "Diese Betten sind neu." },
+                    { de: "die Küche", ph: "دی کیشە", ku: "مەتبەخ", s1: "Diese Küche ist klein.", s2: "Diese Küchen sind sauber." },
+                    { de: "das Badezimmer", ph: "داس بادەتسیمەر", ku: "حەمام", s1: "Dieses Badezimmer ist sauber.", s2: "Diese Badezimmer sind alt." },
+                    { de: "das Sofa", ph: "داس زۆفا", ku: "قەنەفە", s1: "Dieses Sofa ist alt.", s2: "Diese Sofas sind neu." },
+                    { de: "die Lampe", ph: "دی لامپە", ku: "چرا", s1: "Diese Lampe ist neu.", s2: "Diese Lampen sind billig." },
+                    { de: "der Kühlschrank", ph: "دێر کیڵشڕانک", ku: "سەلاجە", s1: "Dieser Kühlschrank ist groß.", s2: "Diese Kühlschränke sind teuer." },
+                    { de: "die Decke", ph: "دی دێکە", ku: "بەتانی", s1: "Diese Decke ist warm.", s2: "Diese Decken sind warm." },
+                    { de: "der Teppich", ph: "دێر تێپیش", ku: "فەرش", s1: "Dieser Teppich ist alt.", s2: "Diese Teppiche sind sauber." },
+                    { de: "der Spiegel", ph: "دێر شپیگەڵ", ku: "ئاوێنە", s1: "Dieser Spiegel ist klein.", s2: "Diese Spiegel sind groß." }
+                ]
+            },
+            // DAY 48
+            {
+                day: 48,
+                month: 2,
+                title: "ڕۆژی ٤٨: viel / viele / ein bisschen",
+                review: "تاقیکردنەوە: جێگا، مەتبەخ، حەمام، قەنەفە، چرا، سەلاجە، بەتانی، فەرش، ئاوێنە.",
+                task: "٣ ڕستە بە viel و viele لە کارەکەت بنووسە.",
+                quote: "«ئەوەی دەزانێت چەندە، دەزانێت چی دەوێت.»",
+                quoteDesc: "«Wie viel?» و «Wie cloudy?» دوو پرسیارن کە لە کارەکەتدا هەموو ڕۆژێک بەکار دێن.",
+                grammar: "• viel: لەگەڵ ناوی ناژمێردراو (viel Wasser, viel Stahl).<br>• viele: لەگەڵ ناوی ژمێردراو و فرە (viele Lastwagen, viele Kisten).",
+                words: [
+                    { de: "das Öl", ph: "داس ئۆڵ", ku: "زەیت", s1: "Ich brauche ein bisschen Öl.", s2: "Es gibt nicht viel Öl." },
+                    { de: "der Treibstoff", ph: "دێر ترایبشتۆف", ku: "سووتەمەنی", s1: "Der Lastwagen braucht Treibstoff.", s2: "Wir haben nicht viel Treibstoff." },
+                    { de: "der Stahl", ph: "دێر شتاڵ", ku: "پۆڵا", s1: "Ich verkaufe viel Stahl.", s2: "Wie viel Stahl hast du?" },
+                    { de: "das Kupfer", ph: "داس کوپفەر", ku: "مس", s1: "Kupfer ist teuer.", s2: "Ich habe ein bisschen Kupfer." },
+                    { de: "das Plastik", ph: "داس پلاستیک", ku: "پلاستیک", s1: "Hier gibt es viel Plastik.", s2: "Ich will nicht viel Plastik." },
+                    { de: "das Glas", ph: "داس گلاس", ku: "شووشە", s1: "Sei vorsichtig, das Glas ist gefährlich.", s2: "Es gibt nicht viel Glas." },
+                    { de: "das Papier", ph: "داس پاپیر", ku: "کاغەز", s1: "Ich brauche etwas Papier.", s2: "Es gibt viel Papier." },
+                    { de: "das Holz", ph: "داس هۆڵتس", ku: "دار", s1: "Ich habe viel Holz.", s2: "Es gibt nicht viel Holz." },
+                    { de: "der Stein", ph: "دێر شتاین", ku: "بەرد (die Steine)", s1: "Hier gibt es viele Steine.", s2: "Wie viele Steine brauchst du?" }
+                ]
+            },
+            // DAY 49
+            {
+                day: 49,
+                month: 2,
+                title: "ڕۆژی ٤٩: پێداچوونەوەی هەفتەی حەوتەم",
+                review: "ئەمڕۆش وشەی نوێ نییە. حەوت هەفتەت تەواو کرد (٣٧٨ وشە).",
+                task: "هەڵەکانی ڕستەکان چاک بکەرەوە و ٥ ڕستەی پێداچوونەوە بە دەنگی بەرز بڵێ.",
+                quote: "«حەوت هەفتە، واتە ئەوەی لە دەستپێکدا قورس بوو، ئێستا ئاسایییە.»",
+                quoteDesc: "ئەگەر لەم هەفتەیەدا ڕۆژێک ماندوو بوویت و هەر هاتیتەوە، ئەوە ئەو شتەیە کە ئەلمانییەکەت دروست دەکات.",
+                words: [
+                    { de: "Gerade arbeiten", ph: "گەڕادە ئاربایتەن", ku: "ئێستا لە مەیدانی سکراپ کار دەکەم", s1: "Ich arbeite gerade auf dem Schrottplatz.", s2: "Er arbeitet gerade." },
+                    { de: "Morgen vorhaben", ph: "مۆرگەن فۆرهابەن", ku: "سبەینێ پلانم هەیە کڕیارێک ببینم", s1: "Morgen habe ich vor, einen Kunden zu treffen.", s2: "Er hat vor zu kommen." },
+                    { de: "Lieferung prüfen", ph: "لیفەرونگ پریفەن", ku: "دەبێت بارەکە لەگەڵ ناردنەکە بپشکنم", s1: "Ich muss die Lieferung prüfen.", s2: "Die Lieferung ist hier." },
+                    { de: "Zwei Waagen", ph: "تسڤای ڤاگەن", ku: "دوو تەرازوو لە ئۆفیسدا هەیە", s1: "Es gibt zwei Waagen im Büro.", s2: "Es gibt eine Waage." },
+                    { de: "Kupfer und Stahl", ph: "کوپفەر ئونت شتاڵ", ku: "مسی زۆرم نییە بەڵام پۆڵای زۆرم هەیە", s1: "Ich habe nicht viel Kupfer, aber ich habe viel Stahl.", s2: "Stahl ist gut." }
+                ]
+            },
+            // DAY 50
+            {
+                day: 50,
+                month: 2,
+                title: "ڕۆژی ٥٠: جێناوی بەرکار (mich / ihn / ihr ...)",
+                review: "تاقیکردنەوە: زەیت، سووتەمەنی، پۆڵا، مس، پلاستیک، شووشە، کاغەز، دار، بەرد.",
+                task: "جێناوە دروستەکان تاقیبکەرەوە و ٣ ڕستە بنووسە.",
+                quote: "«ڕۆژی ٥٠ واتە لە نیوەی ڕێگاکە تێپەڕیت.»",
+                quoteDesc: "ئێستا دەتوانیت باسی خۆت و کەسانی تر بکەیت: «Ich rufe ihn an. Er hilft mir.» ئێستا ٣٨٧ وشەت فێر بووە.",
+                grammar: `• Akkusativ (بەرکاری ڕاستەوخۆ): mich, dich, ihn, sie, es, uns, euch, sie.<br>
+• Dativ (بەرکاری ناڕاستەوخۆ - لەگەڵ helfen, geben): mir, dir, ihm, ihr, uns, ihnen.`,
+                words: [
+                    { de: "der Bus", ph: "دێر بوس", ku: "پاس", s1: "Ich nehme den Bus zur Arbeit.", s2: "Der Bus ist spät. Warte auf ihn." },
+                    { de: "das Taxi", ph: "داس تاکسی", ku: "تاکسی", s1: "Ich brauche ein Taxi.", s2: "Ruf mir ein Taxi, bitte." },
+                    { de: "der Flughafen", ph: "دێر فلووگهافەن", ku: "فڕۆکەخانە", s1: "Der Flughafen ist weit.", s2: "Ich bringe ihn zum Flughafen." },
+                    { de: "das Ticket", ph: "داس تیکێت", ku: "بلیت", s1: "Ich habe ein Ticket gekauft.", s2: "Er hat mir das Ticket gegeben." },
+                    { de: "die Karte", ph: "دی کارتە", ku: "نەخشە", s1: "Ich brauche eine Karte.", s2: "Zeig mir bitte die Karte." },
+                    { de: "die Brücke", ph: "دی بریکە", ku: "پرد", s1: "Es gibt eine Brücke in der Nähe.", s2: "Der Lastwagen ist auf der Brücke." },
+                    { de: "der Verkehr", ph: "دێر فێرکێر", ku: "هاتوچۆ / قەرەباڵغی", s1: "Es gibt viel Verkehr.", s2: "Der Verkehr ist heute schlecht." },
+                    { de: "der Bahnhof", ph: "دێر بانهۆف", ku: "وێستگە", s1: "Wo ist der Bahnhof?", s2: "Ich treffe dich am Bahnhof." },
+                    { de: "die Fahrt", ph: "دی فارت", ku: "سواربوون / گەشتێک", s1: "Ich brauche eine Fahrt.", s2: "Kannst du mich mitnehmen?" }
+                ]
+            },
+            // DAY 51
+            {
+                day: 51,
+                month: 2,
+                title: "ڕۆژی ٥١: um / am / im بۆ کات",
+                review: "تاقیکردنەوە: پاس، تاکسی، فڕۆکەخانە، بلیت، نەخشە، پرد، هاتوچۆ، وێستگە، گەشتێک.",
+                task: "پلانەکەت بە هەفتە و کاتژمێر بنووسە: «Am Montag habe ich um neun...»",
+                quote: "«ئەو کەسەی دەتوانێت کات بە ئەلمانی بڵێت، دەتوانێت کاتەکەی خۆی بەڕێوە ببات.»",
+                quoteDesc: "کاتەکەت ڕێکبخە و ڕۆژەکانی هەفتە بە ئەلمانی بەکاربهێنە. ئێستا ٣٩٦ وشەت فێر بووە.",
+                grammar: "• um: بۆ کاتژمێر (um sechs)<br>• am: بۆ ڕۆژان و بەشەکانی ڕۆژ (am Montag, am Morgen)<br>• im: بۆ مانگ و وەرز (im Winter, im Dezember)",
+                words: [
+                    { de: "Montag", ph: "مۆنتاگ", ku: "دووشەممە", s1: "Ich arbeite am Montag.", s2: "Bis Montag." },
+                    { de: "Dienstag", ph: "دینستاگ", ku: "سێشەممە", s1: "Ich habe am Dienstag eine Besprechung.", s2: "Die Lieferung ist am Dienstag." },
+                    { de: "Mittwoch", ph: "میتڤۆخ", ku: "چوارشەممە", s1: "Ich besuche meinen Bruder am Mittwoch.", s2: "Der Laden ist am Mittwoch zu." },
+                    { de: "Donnerstag", ph: "دۆنەرستاگ", ku: "پێنجشەممە", s1: "Ich habe am Donnerstag früh Feierabend.", s2: "Wir essen am Donnerstag zusammen." },
+                    { de: "Freitag", ph: "فرایتاگ", ku: "هەینی", s1: "Ich habe am Freitag frei.", s2: "Ich ruhe mich am Freitag aus." },
+                    { de: "Samstag", ph: "زامستاگ", ku: "شەممە", s1: "Ich fange am Samstag an.", s2: "Der Markt ist am Samstag voll." },
+                    { de: "Sonntag", ph: "زۆنتاگ", ku: "یەکشەممە", s1: "Ich putze am Sonntag das Haus.", s2: "Ich ruhe mich am Sonntag aus." },
+                    { de: "das Wochenende", ph: "داس ڤۆخەنئێندە", ku: "کۆتایی هەفتە", s1: "Ich ruhe mich am Wochenende aus.", s2: "Was machst du am Wochenende?" },
+                    { de: "der Feiertag", ph: "دێر فایەرتاگ", ku: "پشوو / جەژن", s1: "Morgen ist ein Feiertag.", s2: "Ich reise am Feiertag." }
+                ]
+            },
+            // DAY 52
+            {
+                day: 52,
+                month: 2,
+                title: "ڕۆژی ٥٢: فەرمان (Imperativ) و lass uns",
+                review: "تاقیکردنەوە: دووشەممە، سێشەممە، چوارشەممە، پێنجشەممە، هەینی، شەممە، یەکشەممە، کۆتایی هەفتە.",
+                task: "٣ فەرمانی سەلامەتی لە کارەکەتدا بە ئەلمانی بڵێ.",
+                quote: "«باشترین فەرمان ئەوەیە کە بە خۆتی دەدەیت.»",
+                quoteDesc: "«Schalte dein Handy zehn Minuten aus.» ئەمە ڕستەیەکی ڕاستەقینەی ئەلمانییە! ئێستا ٤٠٥ وشەت فێر بووە.",
+                grammar: "• فەرمان بۆ du: ڕەگی کردار (Öffne die Tür! Warte hier!)<br>• فەرمانی ڕێزدار (Sie): Warten Sie bitte.<br>• Lass uns + ئینفینیتیڤ (با ... بکەین).",
+                words: [
+                    { de: "drücken", ph: "دریکەن", ku: "پاڵنان", s1: "Drück die Tür, bitte.", s2: "Drück die Kiste nicht." },
+                    { de: "ziehen", ph: "تسیێن", ku: "ڕاکێشان", s1: "Zieh die Tür.", s2: "Zieh es nicht." },
+                    { de: "heben", ph: "هێبەن", ku: "بەرزکردنەوە", s1: "Heb die Kiste, bitte.", s2: "Heb es nicht allein." },
+                    { de: "anhalten", ph: "ئانهاڵتەن", ku: "ڕاوەستان", s1: "Halte den Lastwagen an.", s2: "Halte hier nicht an." },
+                    { de: "legen", ph: "لێگەن", ku: "دانان", s1: "Leg die Tasche hierher.", s2: "Leg es nicht auf den Boden." },
+                    { de: "anfassen", ph: "ئانفاسەن", ku: "دەستلێدان", s1: "Fass das Glas vorsichtig an.", s2: "Fass das Feuer nicht an." },
+                    { de: "einschalten", ph: "ئاینشاڵتەن", ku: "داگیرساندن", s1: "Schalte das Licht ein.", s2: "Schalte die Maschine nicht ein." },
+                    { de: "ausschalten", ph: "ئاوسشاڵتەن", ku: "کوژاندنەوە", s1: "Schalte die Maschine aus.", s2: "Schalte das Licht nicht aus." },
+                    { de: "sich beeilen", ph: "زیش بەئایلەن", ku: "پەلەکردن", s1: "Beeil dich, bitte!", s2: "Beeil dich nicht, wir haben Zeit." }
+                ]
+            },
+            // DAY 53
+            {
+                day: 53,
+                month: 2,
+                title: "ڕۆژی ٥٣: ئەگەر (wenn)",
+                review: "تاقیکردنەوە: پاڵنان، ڕاکێشان، بەرزکردنەوە، ڕاوەستان، دانان، دەستلێدان، داگیرساندن، کوژاندنەوە، پەلەکردن.",
+                task: "٣ ڕستە بە wenn بنووسە: «Wenn ich ein Problem habe, rufe ich...»",
+                quote: "«ئەو کەسەی دەتوانێت بڵێت «ئەگەر»، دەتوانێت بۆ هەر دۆخێک پلان دابنێت.»",
+                quoteDesc: "«Wenn ich müde bin, lerne ich trotzdem zehn Minuten.» ئەمە ڕستەیەکە کە سەختترین ڕۆژەکانت ئامادە دەکات.",
+                grammar: "شێوازی Wenn:<br>Wenn + کەس + ... + کردار (لە کۆتاییدا)، + کردار + کەس...<br>نموونە: Wenn es regnet, bleibe ich zu Hause.",
+                words: [
+                    { de: "das Problem", ph: "داس پرۆبلێم", ku: "کێشە", s1: "Ich habe ein Problem.", s2: "Wenn du ein Problem hast, ruf mich an." },
+                    { de: "die Lösung", ph: "دی لۆزونگ", ku: "چارەسەر", s1: "Ich brauche eine Lösung.", s2: "Wenn wir eine Lösung finden, fangen wir an." },
+                    { de: "der Grund", ph: "دێر گرونت", ku: "هۆکار", s1: "Was ist der Grund?", s2: "Wenn es einen Grund gibt, warte ich." },
+                    { de: "der Fehler", ph: "دێر فێلەر", ku: "هەڵە", s1: "Ich habe einen Fehler gemacht.", s2: "Wenn du einen Fehler machst, sag es mir." },
+                    { de: "die Idee", ph: "دی ئیدێ", ku: "بیرۆکە", s1: "Ich habe eine Idee.", s2: "Wenn du eine Idee hast, sag sie." },
+                    { de: "die Chance", ph: "دی شانسە", ku: "دەرفەت", s1: "Ich habe eine Chance.", s2: "Wenn ich eine Chance bekomme, reise ich." },
+                    { de: "die Verspätung", ph: "دی فێرشپێتونگ", ku: "دواکەوتن", s1: "Es gibt eine Verspätung.", s2: "Wenn es eine Verspätung gibt, rufe ich dich an." },
+                    { de: "der Ärger", ph: "دێر ئێرگەر", ku: "ناڕەحەتی", s1: "Es gibt Ärger.", s2: "Wenn es Ärger gibt, warte nicht." },
+                    { de: "das Ergebnis", ph: "داس ئێرگێبنیس", ku: "ئەنجام", s1: "Ich will das Ergebnis sehen.", s2: "Wenn das Ergebnis gut ist, machen wir weiter." }
+                ]
+            },
+            // DAY 54
+            {
+                day: 54,
+                month: 2,
+                title: "ڕۆژی ٥٤: چۆنیەتی کار (ئاوەڵکار - Adverbs)",
+                review: "تاقیکردنەوە: کێشە، چارەسەر، هۆکار، هەڵە، بیرۆکە، دەرفەت، دواکەوتن، ناڕەحەتی، ئەنجام.",
+                task: "٣ ڕستەی ئاوەڵکار بنووسە: «Ich arbeite fleißig... Ich fahre vorsichtig...»",
+                quote: "«چۆنیەتی کارکردن، گرنگترە لە ژمارەی کارەکان.»",
+                quoteDesc: "«Ich lerne langsam, aber ich lerne jeden Tag.» بەردەوامی گرنگترە لە خێرایی. ئێستا ٤٢٣ وشەت فێر بووە.",
+                grammar: "لە ئەلمانیدا ئاوەڵناو و ئاوەڵکار هەمان شێوەیان هەیە! (vorsichtig = وریا و بە وریاییەوە).<br>بۆ دروستکردنی هیچ پاشگرێکی تایبەتی (-ly) پێویست ناکات.",
+                words: [
+                    { de: "pünktlich", ph: "پینکتلیش", ku: "لە کاتی خۆیدا", s1: "Ich komme immer pünktlich.", s2: "Der Lastwagen ist pünktlich angekommen." },
+                    { de: "sofort", ph: "زۆفۆرت", ku: "یەکسەر", s1: "Komm bitte sofort.", s2: "Ich rufe dich sofort an." },
+                    { de: "regelmäßig", ph: "ڕێگەڵمێسیش", ku: "بەردەوام / بە ڕێک", s1: "Ich lerne regelmäßig.", s2: "Er arbeitet regelmäßig hier." },
+                    { de: "genau", ph: "گەناو", ku: "بە وردی", s1: "Ich weiß es genau.", s2: "Sag es genau." },
+                    { de: "ruhig", ph: "ڕووییش", ku: "بە ئارامی", s1: "Das Kind schläft ruhig.", s2: "Bitte warte ruhig." },
+                    { de: "gern", ph: "گێرن", ku: "بە دڵخۆشی", s1: "Ich helfe gern.", s2: "Ich trinke gern Tee." },
+                    { de: "leider", ph: "لایدەر", ku: "بەداخەوە", s1: "Leider habe ich keine Zeit.", s2: "Leider ist der Laden zu." },
+                    { de: "kaum", ph: "کاوم", ku: "بە زەحمەت", s1: "Ich habe kaum Zeit.", s2: "Er hat kaum Geld." },
+                    { de: "fleißig", ph: "فلایسیش", ku: "بە کۆشش", s1: "Ich arbeite fleißig.", s2: "Sie lernt fleißig." }
+                ]
+            },
+            // DAY 55
+            {
+                day: 55,
+                month: 2,
+                title: "ڕۆژی ٥٥: داواکاری بە ڕێز (könntest / würden) & کۆتایی کورسەکە",
+                review: "تاقیکردنەوە: لە کاتی خۆیدا، یەکسەر، بەردەوام، بە وردی، بە ئارامی، بە دڵخۆشی، بەداخەوە، بە کۆشش.",
+                task: "پیرۆزبایی! ٥٥ ڕۆژەکەت بە سەرکەوتوویی تەواو کرد. ئەم دەربڕینانە لە ئاخاوتنی ڕۆژانەدا بەکاربهێنە.",
+                quote: "«تۆ ٥٥ ڕۆژت لە ڕێگایەکی ٥٥ ڕۆژە بڕی، ئێستا ئەلمانی بووەتە بەشێک لە ژیانت!»",
+                quoteDesc: "گرنگترین ڕستە لە زماندا ئەمەیە: «Könnten Sie das bitte wiederholen?» ئێستا تۆ زیاتر لە ٤٣٢ وشەت بە تەواوی فێر بوویت!",
+                grammar: "• Könntest du / Könnten Sie (دەتوانیت بە ڕێزەوە...)<br>• Würdest du / Würden Sie (ئایا دەبێت...)",
+                words: [
+                    { de: "ausleihen", ph: "ئاوسلایەن", ku: "قەرزکردن", s1: "Kann ich deinen Stift ausleihen?", s2: "Ich möchte einen Hammer ausleihen." },
+                    { de: "leihen", ph: "لایەن", ku: "قەرزدان", s1: "Könntest du mir etwas Geld leihen?", s2: "Würdest du mir dein Handy leihen?" },
+                    { de: "wiederholen", ph: "ڤیدەرهۆلەن", ku: "دووبارەکردنەوە", s1: "Könnten Sie das bitte wiederholen?", s2: "Würden Sie den Preis wiederholen?" },
+                    { de: "erklären", ph: "ئێرکلێرەن", ku: "ڕوونکردنەوە", s1: "Könnten Sie dieses Wort erklären?", s2: "Würden Sie den Preis erklären?" },
+                    { de: "reichen", ph: "ڕایشەن", ku: "پێدان / دانەوە", s1: "Könntest du mir das Wasser reichen?", s2: "Würdest du mir die Tasche reichen?" },
+                    { de: "teilen", ph: "تایلەن", ku: "هاوبەشکردن", s1: "Können wir ein Taxi teilen?", s2: "Möchten Sie teilen?" },
+                    { de: "unterschreiben", ph: "ئونتەرشرایبەن", ku: "واژۆکردن", s1: "Könnten Sie hier bitte unterschreiben?", s2: "Ich möchte, dass Sie den Vertrag unterschreiben." },
+                    { de: "buchstabieren", ph: "بووخشتابیرەن", ku: "پیتەکانی وشە وتن", s1: "Könnten Sie Ihren Namen buchstabieren?", s2: "Würden Sie es bitte buchstabieren?" },
+                    { de: "mitnehmen", ph: "میتنێیمەن", ku: "لەگەڵ خۆت بردن", s1: "Kannst du mich mitnehmen?", s2: "Würdest du mich zum Bahnhof mitnehmen?" }
+                ]
+            }
+        ];
+
+        // Global State & LocalStorage Management
+        let currentDayIndex = 0;
+        let currentMonth = 1;
+        let completedDays = JSON.parse(localStorage.getItem('de_course_completed_days') || '[]');
+        let currentQuizCardIndex = 0;
+        let isCardFlipped = false;
+        let mediaRecorder = null;
+        let audioChunks = [];
+
+        // DOM Element References
+        const daysListContainer = document.getElementById('daysListContainer');
+        const dayTitle = document.getElementById('dayTitle');
+        const currentDayBadge = document.getElementById('currentDayBadge');
+        const currentMonthBadge = document.getElementById('currentMonthBadge');
+        const reviewText = document.getElementById('reviewText');
+        const sectionGrammar = document.getElementById('sectionGrammar');
+        const grammarContent = document.getElementById('grammarContent');
+        const vocabTbody = document.getElementById('vocabTbody');
+        const vocabCount = document.getElementById('vocabCount');
+        const taskContent = document.getElementById('taskContent');
+        const quoteText = document.getElementById('quoteText');
+        const quoteDesc = document.getElementById('quoteDesc');
+        const toggleCompleteBtn = document.getElementById('toggleCompleteBtn');
+        const completeBtnText = document.getElementById('completeBtnText');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const sectionAudioRecorder = document.getElementById('sectionAudioRecorder');
+
+        // Month Tab Buttons
+        const tabMonth1 = document.getElementById('tabMonth1');
+        const tabMonth2 = document.getElementById('tabMonth2');
+
+        // Text-to-Speech Function using Web Speech API
+        function speakGerman(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Stop any currently playing audio
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'de-DE';
+                utterance.rate = 0.9; // Slightly slower for language learners
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('سیستەمەکەت پشتگیری خوێندنەوەی دەنگ (Text-to-speech) ناکات.');
+            }
+        }
+
+        // Initialize App
+        function initApp() {
+            renderDaysList();
+            loadDay(currentDayIndex);
+            updateProgressUI();
+            setupEventListeners();
+            initPhoneticsTable();
+            initDictionary();
+            
+            // Check Dark Mode preference
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // Render Sidebar Days List
+        function renderDaysList(searchTerm = '') {
+            daysListContainer.innerHTML = '';
+            
+            const filteredDays = courseDays.filter(d => {
+                const matchesMonth = d.month === currentMonth;
+                const matchesSearch = searchTerm === '' || 
+                    d.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    d.words.some(w => w.de.toLowerCase().includes(searchTerm.toLowerCase()) || w.ku.includes(searchTerm));
+                return matchesMonth && matchesSearch;
+            });
+
+            if (filteredDays.length === 0) {
+                daysListContainer.innerHTML = `<p class="text-xs text-slate-500 text-center py-4">هیچ ڕۆژێک نه‌دۆزرایه‌وه‌</p>`;
+                return;
+            }
+
+            filteredDays.forEach(d => {
+                const idx = d.day - 1;
+                const isCompleted = completedDays.includes(d.day);
+                const isActive = idx === currentDayIndex;
+
+                const dayCard = document.createElement('div');
+                dayCard.className = `p-3 rounded-xl cursor-pointer transition flex items-center justify-between border ${
+                    isActive 
+                        ? 'bg-brand-50 border-brand-500 dark:bg-brand-950/60 dark:border-brand-600 shadow-sm' 
+                        : 'bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`;
+
+                dayCard.onclick = () => {
+                    currentDayIndex = idx;
+                    loadDay(currentDayIndex);
+                    renderDaysList(document.getElementById('sidebarSearch').value);
+                    // Close mobile menu if open
+                    document.getElementById('sidebar').classList.add('translate-x-full');
+                    document.getElementById('sidebarOverlay').classList.add('hidden');
+                };
+
+                dayCard.innerHTML = `
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-7 h-7 rounded-lg flex items-center justify-center font-extrabold text-xs shrink-0 ${
+                            isCompleted 
+                                ? 'bg-emerald-500 text-white' 
+                                : isActive 
+                                    ? 'bg-brand-600 text-white' 
+                                    : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                        }">
+                            ${d.day}
+                        </div>
+                        <div class="truncate">
+                            <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">${d.title.split(':')[1] || d.title}</h4>
+                            <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">${d.words.length} وشە</span>
+                        </div>
+                    </div>
+                    ${isCompleted ? `<i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 shrink-0"></i>` : ''}
+                `;
+
+                daysListContainer.appendChild(dayCard);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Load Active Day Data to UI
+        function loadDay(index) {
+            const dayData = courseDays[index];
+            if (!dayData) return;
+
+            currentDayBadge.innerText = `ڕۆژی ${dayData.day}`;
+            currentMonthBadge.innerText = dayData.month === 1 ? "مانگی یەکەم" : "مانگی دووەم";
+            dayTitle.innerText = dayData.title;
+            reviewText.innerText = dayData.review || "واتاکان بخوێنەوە و دووبارەیان بکەرەوە...";
+            taskContent.innerText = dayData.task || "ڕاهێنانی ئەمڕۆ بنووسەوە بە دەنگی بەرز.";
+            quoteText.innerText = dayData.quote || "";
+            quoteDesc.innerText = dayData.quoteDesc || "";
+
+            // Check if day has Audio Recorder (Day 30)
+            if (dayData.day === 30) {
+                sectionAudioRecorder.classList.remove('hidden');
+            } else {
+                sectionAudioRecorder.classList.add('hidden');
+            }
+
+            // Check Grammar Section
+            if (dayData.grammar) {
+                sectionGrammar.classList.remove('hidden');
+                grammarContent.innerHTML = dayData.grammar;
+            } else {
+                sectionGrammar.classList.add('hidden');
+            }
+
+            // Populate Vocab Table
+            vocabCount.innerText = dayData.words.length;
+            vocabTbody.innerHTML = '';
+
+            dayData.words.forEach((w, wIdx) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 dark:hover:bg-slate-800/50 transition";
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <button onclick="speakGerman('${w.de.replace(/'/g, "\\'")}')" class="p-1.5 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 hover:bg-brand-200 transition shrink-0" title="گوێگرتن">
+                            <i data-lucide="volume-2" class="w-4 h-4"></i>
+                        </button>
+                        <span class="de-text text-sm">${w.de}</span>
+                    </td>
+                    <td class="p-3 text-slate-600 dark:text-slate-300 font-semibold text-xs">${w.ph}</td>
+                    <td class="p-3 text-brand-700 dark:text-brand-400 font-bold text-xs">${w.ku}</td>
+                    <td class="p-3 text-xs text-slate-600 dark:text-slate-300 font-medium">
+                        <div class="flex items-center gap-1">
+                            <button onclick="speakGerman('${w.s1.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-brand-500">
+                                <i data-lucide="play" class="w-3 h-3"></i>
+                            </button>
+                            <span class="de-text">${w.s1}</span>
+                        </div>
+                    </td>
+                    <td class="p-3 text-xs text-slate-600 dark:text-slate-300 font-medium">
+                        <div class="flex items-center gap-1">
+                            <button onclick="speakGerman('${w.s2.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-brand-500">
+                                <i data-lucide="play" class="w-3 h-3"></i>
+                            </button>
+                            <span class="de-text">${w.s2}</span>
+                        </div>
+                    </td>
+                `;
+                vocabTbody.appendChild(tr);
+            });
+
+            // Completion Button State
+            const isCompleted = completedDays.includes(dayData.day);
+            if (isCompleted) {
+                toggleCompleteBtn.className = "flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300";
+                completeBtnText.innerText = "تەواو نەکراو";
+            } else {
+                toggleCompleteBtn.className = "flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition bg-emerald-500 text-white hover:bg-emerald-600 shadow-md";
+                completeBtnText.innerText = "نیشانە بکە وەک تەواوکراو";
+            }
+
+            lucide.createIcons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Day Completed Status
+        function toggleCurrentDayCompletion() {
+            const currentDayNumber = courseDays[currentDayIndex].day;
+            if (completedDays.includes(currentDayNumber)) {
+                completedDays = completedDays.filter(d => d !== currentDayNumber);
+            } else {
+                completedDays.push(currentDayNumber);
+            }
+            localStorage.setItem('de_course_completed_days', JSON.stringify(completedDays));
+            loadDay(currentDayIndex);
+            renderDaysList(document.getElementById('sidebarSearch').value);
+            updateProgressUI();
+        }
+
+        // Update Global Progress Bar
+        function updateProgressUI() {
+            const total = courseDays.length;
+            const count = completedDays.length;
+            const percentage = Math.round((count / total) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.innerText = `${count} / ${total} (${percentage}%)`;
+        }
+
+        // Phonetics Modal Loader
+        function initPhoneticsTable() {
+            const phoneticsTbody = document.getElementById('phoneticsTbody');
+            phoneticsTbody.innerHTML = '';
+            phoneticsData.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 dark:hover:bg-slate-800/50";
+                tr.innerHTML = `
+                    <td class="p-2.5 font-bold text-slate-900 dark:text-white de-text">${p.char}</td>
+                    <td class="p-2.5 text-slate-700 dark:text-slate-300 font-medium">${p.sound}</td>
+                    <td class="p-2.5 text-slate-800 dark:text-slate-200 font-bold de-text">${p.example}</td>
+                    <td class="p-2.5 text-brand-600 dark:text-brand-400 font-semibold">${p.phonetic}</td>
+                    <td class="p-2.5">
+                        <button onclick="speakGerman('${p.example}')" class="p-1 rounded bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 hover:bg-brand-200">
+                            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </td>
+                `;
+                phoneticsTbody.appendChild(tr);
+            });
+        }
+
+        // Dictionary Modal Loader
+        function initDictionary() {
+            const dictTbody = document.getElementById('dictTbody');
+            const dictDayFilter = document.getElementById('dictDayFilter');
+            const dictSearchInput = document.getElementById('dictSearchInput');
+            const dictTotalCount = document.getElementById('dictTotalCount');
+
+            // Populate Filter options
+            dictDayFilter.innerHTML = `<option value="all">سەرجەم ڕۆژەکان</option>`;
+            courseDays.forEach(d => {
+                dictDayFilter.innerHTML += `<option value="${d.day}">ڕۆژی ${d.day} (${d.words.length} وشە)</option>`;
+            });
+
+            function renderDict() {
+                const query = dictSearchInput.value.toLowerCase().trim();
+                const selectedDay = dictDayFilter.value;
+
+                let allWords = [];
+                courseDays.forEach(d => {
+                    if (selectedDay === 'all' || selectedDay == d.day) {
+                        d.words.forEach(w => {
+                            allWords.push({ ...w, day: d.day });
+                        });
+                    }
+                });
+
+                const filtered = allWords.filter(w => 
+                    w.de.toLowerCase().includes(query) || 
+                    w.ku.includes(query) || 
+                    w.ph.includes(query)
+                );
+
+                dictTotalCount.innerText = filtered.length;
+                dictTbody.innerHTML = '';
+
+                filtered.forEach(w => {
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-50 dark:hover:bg-slate-800/50 transition";
+                    tr.innerHTML = `
+                        <td class="p-3 font-bold text-slate-900 dark:text-white de-text text-sm">${w.de}</td>
+                        <td class="p-3 text-slate-600 dark:text-slate-300 font-medium">${w.ph}</td>
+                        <td class="p-3 text-brand-600 dark:text-brand-400 font-bold">${w.ku}</td>
+                        <td class="p-3 text-slate-500 font-medium">ڕۆژی ${w.day}</td>
+                        <td class="p-3">
+                            <button onclick="speakGerman('${w.de.replace(/'/g, "\\'")}')" class="p-1.5 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 hover:bg-brand-200">
+                                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </td>
+                    `;
+                    dictTbody.appendChild(tr);
+                });
+
+                lucide.createIcons();
+            }
+
+            dictSearchInput.oninput = renderDict;
+            dictDayFilter.onchange = renderDict;
+            renderDict();
+        }
+
+        // Quiz / Flashcard Logic
+        function openQuizModal() {
+            currentQuizCardIndex = 0;
+            isCardFlipped = false;
+            document.getElementById('flashCard').classList.remove('flipped');
+            updateQuizCard();
+            document.getElementById('quizModal').classList.remove('hidden');
+        }
+
+        function updateQuizCard() {
+            const dayData = courseDays[currentDayIndex];
+            const words = dayData.words;
+            const currentWord = words[currentQuizCardIndex];
+
+            document.getElementById('quizDayLabel').innerText = `ڕۆژی ${dayData.day} - کارت ${currentQuizCardIndex + 1} لە ${words.length}`;
+            document.getElementById('cardGerman').innerText = currentWord.de;
+            document.getElementById('cardKurdish').innerText = currentWord.ku;
+            document.getElementById('cardPhonetic').innerText = `خوێندنەوە: ${currentWord.ph}`;
+            document.getElementById('cardSentence').innerText = currentWord.s1;
+
+            // Speak word on card view
+            speakGerman(currentWord.de);
+        }
+
+        // Setup All Event Listeners
+        function setupEventListeners() {
+            // Month Tab Switchers
+            tabMonth1.onclick = () => {
+                currentMonth = 1;
+                tabMonth1.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition text-white bg-brand-600 shadow-sm";
+                tabMonth2.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition text-slate-600 dark:text-slate-300 hover:text-brand-600";
+                renderDaysList(document.getElementById('sidebarSearch').value);
+            };
+
+            tabMonth2.onclick = () => {
+                currentMonth = 2;
+                tabMonth2.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition text-white bg-brand-600 shadow-sm";
+                tabMonth1.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition text-slate-600 dark:text-slate-300 hover:text-brand-600";
+                renderDaysList(document.getElementById('sidebarSearch').value);
+            };
+
+            // Sidebar Search
+            document.getElementById('sidebarSearch').oninput = (e) => {
+                renderDaysList(e.target.value);
+            };
+
+            // Mobile Menu Actions
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            document.getElementById('mobileMenuBtn').onclick = () => {
+                sidebar.classList.remove('translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+            };
+            document.getElementById('closeSidebarBtn').onclick = () => {
+                sidebar.classList.add('translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            };
+            sidebarOverlay.onclick = () => {
+                sidebar.classList.add('translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            };
+
+            // Theme Toggle
+            document.getElementById('themeToggleBtn').onclick = () => {
+                document.documentElement.classList.toggle('dark');
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            };
+
+            // Toggle Completion button
+            toggleCompleteBtn.onclick = toggleCurrentDayCompletion;
+
+            // Phonetics Modal
+            document.getElementById('phoneticsModalBtn').onclick = () => {
+                document.getElementById('phoneticsModal').classList.remove('hidden');
+            };
+            document.getElementById('closePhoneticsBtn').onclick = () => {
+                document.getElementById('phoneticsModal').classList.add('hidden');
+            };
+
+            // Dictionary Modal
+            document.getElementById('dictionaryModalBtn').onclick = () => {
+                document.getElementById('dictionaryModal').classList.remove('hidden');
+            };
+            document.getElementById('closeDictBtn').onclick = () => {
+                document.getElementById('dictionaryModal').classList.add('hidden');
+            };
+
+            // Quiz Modal Actions
+            document.getElementById('openQuizBtn').onclick = openQuizModal;
+            document.getElementById('closeQuizBtn').onclick = () => {
+                document.getElementById('quizModal').classList.add('hidden');
+            };
+            
+            // Card Flip
+            const flashCard = document.getElementById('flashCard');
+            flashCard.onclick = () => {
+                isCardFlipped = !isCardFlipped;
+                flashCard.classList.toggle('flipped', isCardFlipped);
+            };
+
+            document.getElementById('nextCardBtn').onclick = () => {
+                const words = courseDays[currentDayIndex].words;
+                currentQuizCardIndex = (currentQuizCardIndex + 1) % words.length;
+                isCardFlipped = false;
+                flashCard.classList.remove('flipped');
+                updateQuizCard();
+            };
+
+            document.getElementById('prevCardBtn').onclick = () => {
+                const words = courseDays[currentDayIndex].words;
+                currentQuizCardIndex = (currentQuizCardIndex - 1 + words.length) % words.length;
+                isCardFlipped = false;
+                flashCard.classList.remove('flipped');
+                updateQuizCard();
+            };
+
+            document.getElementById('playCardAudioBtn').onclick = (e) => {
+                e.stopPropagation();
+                const word = courseDays[currentDayIndex].words[currentQuizCardIndex];
+                speakGerman(word.de);
+            };
+
+            // Audio Recording Feature (Day 30 Milestone)
+            const recordAudioBtn = document.getElementById('recordAudioBtn');
+            const recordStatus = document.getElementById('recordStatus');
+            const audioPlayback = document.getElementById('audioPlayback');
+
+            let isRecording = false;
+
+            recordAudioBtn.onclick = async () => {
+                if (!isRecording) {
+                    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                        try {
+                            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                            mediaRecorder = new MediaRecorder(stream);
+                            audioChunks = [];
+                            mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+                            mediaRecorder.onstop = () => {
+                                const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+                                const audioUrl = URL.createObjectURL(audioBlob);
+                                audioPlayback.src = audioUrl;
+                                audioPlayback.classList.remove('hidden');
+                            };
+                            mediaRecorder.start();
+                            isRecording = true;
+                            recordStatus.innerText = "لە تۆمارکردندایە... کلیک بکەرەوە بۆ وەستان";
+                            recordAudioBtn.classList.replace('bg-indigo-600', 'bg-red-600');
+                        } catch (err) {
+                            alert('مۆڵەتی بەکارهێنانی میکڕۆفۆن ڕەتکرایەوە.');
+                        }
+                    }
+                } else {
+                    mediaRecorder.stop();
+                    isRecording = false;
+                    recordStatus.innerText = "تۆمارکردنی نوێ";
+                    recordAudioBtn.classList.replace('bg-red-600', 'bg-indigo-600');
+                }
+            };
+        }
+
+        // Initialize App on DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
